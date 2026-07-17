@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.pnpm-store/
+.git-local/
+_docx_review/
+vite.log
+vite-error.log

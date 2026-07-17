@@ -1,0 +1,151 @@
+import { useEffect, useRef, useState } from 'react'
+import { createRoot } from 'react-dom/client'
+import './styles.css'
+
+const navItems = [
+  { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'Global Presence'] },
+  { label: 'AI Solutions', items: ['Panopath AI Platform', 'AI Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis'] },
+  { label: 'Products & Platform', items: ['AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology', 'LIS & Integration'] },
+  { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions'] },
+  { label: 'Resources', items: ['Clinical Evidence', 'Case Studies', 'News & Insights'] },
+]
+
+const stats = [
+  { value: 10, suffix: 'M+', label: 'WSIs database' },
+  { value: 5, suffix: 'M+', label: 'AI-assisted diagnostic WSIs' },
+  { value: 12800, suffix: '+', label: 'Hospitals served' },
+  { value: 240, suffix: '+', label: 'Pathologists' },
+]
+
+const capabilities = [
+  ['AI-powered diagnostics', 'Support confident, consistent pathology decisions with AI analysis built into the clinical workflow.'],
+  ['Digital workflow', 'Connect slide scanning, image management, AI review and reporting in one streamlined platform.'],
+  ['Flexible deployment', 'Choose cloud, on-premise or hybrid deployment aligned with local data and compliance needs.'],
+]
+
+const solutionModules = [
+  { icon: 'ai', title: 'Pathology AI-assisted Diagnosis Platform', detail: 'AI-assisted review for confident diagnostic decisions.' },
+  { icon: 'report', title: 'Pathological Structured Reporting System', detail: 'Standardized reporting built for efficiency and consistency.' },
+  { icon: 'pis', title: 'Full-workflow Pathology Information System', detail: 'A connected information backbone for pathology operations.' },
+  { icon: 'remote', title: 'Remote Pathological Diagnosis System', detail: 'Secure collaboration and expert review across locations.' },
+  { icon: 'scanner', title: 'Automatic Digital Slide Scanner', detail: 'High-quality whole-slide imaging for a digital workflow.' },
+  { icon: 'appliance', title: 'AI Pathology Appliance', detail: 'Integrated computing infrastructure for flexible deployment.' },
+]
+
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
+
+function Logo() {
+  return <a className="brand" href="#top" aria-label="Huayin Healthcare home"><img src={assetUrl('images/huayin-healthcare-logo.png')} alt="Huayin Healthcare Group" /></a>
+}
+
+function Header() {
+  const [open, setOpen] = useState(false)
+  const [menu, setMenu] = useState(null)
+  return <header className="site-header">
+    <div className="nav-wrap">
+      <Logo />
+      <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <nav className={open ? 'main-nav open' : 'main-nav'}>
+        {navItems.map(({ label, items }) => <div className="nav-item" key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={() => setMenu(null)}>
+          <button onClick={() => setMenu(menu === label ? null : label)}>{label}<span className="chevron">⌄</span></button>
+          {menu === label && <div className="dropdown">{items.map(item => <a href="#solutions" key={item}>{item}</a>)}</div>}
+        </div>)}
+        <a className="contact-link" href="#contact">Contact</a>
+        <a className="language" href="#top">EN <span>/</span> 中</a>
+        <a className="demo-button nav-demo" href="#demo">Request a demo <span>→</span></a>
+      </nav>
+    </div>
+  </header>
+}
+
+function AnimatedStat({ value, suffix, label }) {
+  const [current, setCurrent] = useState(0)
+  const elementRef = useRef(null)
+
+  useEffect(() => {
+    const element = elementRef.current
+    if (!element) return undefined
+    let frameId
+    const animate = () => {
+      const startedAt = performance.now()
+      const duration = 1500
+      const tick = (now) => {
+        const progress = Math.min((now - startedAt) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setCurrent(Math.round(value * eased))
+        if (progress < 1) frameId = requestAnimationFrame(tick)
+      }
+      frameId = requestAnimationFrame(tick)
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        animate()
+        observer.disconnect()
+      }
+    }, { threshold: 0.45 })
+    observer.observe(element)
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(frameId)
+    }
+  }, [value])
+
+  return <article ref={elementRef}><strong>{current.toLocaleString('en-US')}{suffix}</strong><span>{label}</span></article>
+}
+
+function SolutionIcon({ type }) {
+  const paths = {
+    ai: <><path d="M7 4h10l3 3v10l-3 3H7l-3-3V7z"/><path d="M9 12h6M12 9v6M2 10v4M22 10v4M10 2v2M14 2v2M10 20v2M14 20v2"/></>,
+    report: <><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h5M9 12h6M9 16h6M9 8h2"/></>,
+    pis: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 9h8M8 13h4M6 22h12M12 19v3"/></>,
+    remote: <><path d="M5 18a7 7 0 1 1 14 0"/><path d="M8 18v2a2 2 0 0 1-2 2H5v-5h3M16 18v2a2 2 0 0 0 2 2h1v-5h-3M12 5v6l3 2"/></>,
+    scanner: <><path d="M5 3h14v7H5zM3 12h18v8H3z"/><path d="M8 7h8M8 16h8M7 20v2M17 20v2"/></>,
+    appliance: <><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M8 16h2M15 12h1M15 16h1"/></>,
+  }
+  return <svg viewBox="0 0 24 24" aria-hidden="true">{paths[type]}</svg>
+}
+
+function SolutionModule({ item, index }) {
+  const [position, setPosition] = useState({ x: '50%', y: '50%' })
+  const updatePointer = (event) => {
+    const box = event.currentTarget.getBoundingClientRect()
+    setPosition({ x: `${event.clientX - box.left}px`, y: `${event.clientY - box.top}px` })
+  }
+  return <article className="solution-module" onMouseMove={updatePointer} style={{ '--pointer-x': position.x, '--pointer-y': position.y }}>
+    <span className="module-index">0{index + 1}</span><div className="module-icon"><SolutionIcon type={item.icon} /></div><h3>{item.title}</h3><p>{item.detail}</p><a href="#demo">Explore <span>→</span></a>
+  </article>
+}
+
+function App() {
+  return <div id="top">
+    <Header />
+    <main>
+      <section className="hero hero-video">
+        <video className="hero-video-media" autoPlay muted loop playsInline aria-hidden="true"><source src={assetUrl('videos/homepage-hero-v2.mp4')} type="video/mp4" /></video>
+        <div className="hero-video-overlay"></div>
+        <div className="hero-content hero-video-content">
+          <p className="eyebrow">HUAYIN HEALTHCARE GROUP</p>
+          <h1><span>PATHOLOGY</span><span>POWERED</span><span>BY AI</span></h1>
+          <a className="hero-video-link" href="#platform">Explore our AI solutions <span>→</span></a>
+        </div>
+      </section>
+
+      <section className="stats section-shell">{stats.map((stat) => <AnimatedStat key={stat.label} {...stat} />)}</section>
+
+      <section className="intro section-shell" id="platform"><div><p className="eyebrow blue">ONE CONNECTED ECOSYSTEM</p><h2>Precision technology.<br/>Practical impact.</h2></div><p>From image acquisition through reporting, our connected pathology ecosystem is designed around the realities of clinical practice. Bring together the capabilities your team needs today and grow with confidence tomorrow.</p></section>
+
+      <section className="capability-section"><div className="section-shell"><div className="section-heading"><p className="eyebrow blue">WHAT WE ENABLE</p><h2>Built for the next era<br/>of pathology.</h2><a className="text-button" href="#solutions">Discover our capabilities <span>→</span></a></div><div className="capability-grid">{capabilities.map(([title, copy], i) => <article className="capability-card" key={title}><span className={'card-number n' + i}>0{i + 1}</span><div className="card-icon">{i === 0 ? '✦' : i === 1 ? '◫' : '◌'}</div><h3>{title}</h3><p>{copy}</p><a href="#demo" aria-label={`Learn about ${title}`}>Learn more <span>→</span></a></article>)}</div></div></section>
+
+      <section className="workflow section-shell"><div className="workflow-visual"><div className="workflow-circle"><span>SCAN</span><span>ANALYZE</span><span>REPORT</span><b>AI</b></div></div><div className="workflow-copy"><p className="eyebrow blue">THE PANOPATH PLATFORM</p><h2>A clearer path from slide to insight.</h2><p>Panopath connects every stage of your digital pathology workflow in a single, intelligent environment—giving teams the information and flexibility to work at their best.</p><ul><li>Intelligent image management</li><li>AI-assisted clinical review</li><li>Open integration and scalable deployment</li></ul><a className="text-button" href="#demo">Explore the platform <span>→</span></a></div></section>
+
+      <section className="solutions-section" id="solutions"><div className="section-shell"><div className="solutions-intro"><div><p className="eyebrow">SOLUTIONS DESIGNED AROUND YOU</p><h2>One connected ecosystem.<br/>Built for pathology.</h2></div><div className="solutions-summary"><p>AI <span>+</span> PIS <span>+</span> Hardware <span>+</span> Services</p><small>Four-in-one intelligent pathology solution</small></div></div><div className="solution-modules">{solutionModules.map((item, index) => <SolutionModule item={item} index={index} key={item.title} />)}</div></div></section>
+
+      <section className="global section-shell"><div><p className="eyebrow blue">GLOBAL BY DESIGN</p><h2>Local partnership.<br/>Worldwide perspective.</h2><p>We work alongside healthcare organizations across regions, providing technology, service and deployment models that respect local needs.</p><a className="text-button" href="#contact">View global presence <span>→</span></a></div><div className="world-map"><span className="map-dot d1"></span><span className="map-dot d2"></span><span className="map-dot d3"></span><span className="map-dot d4"></span><span className="map-label l1">EUROPE</span><span className="map-label l2">MIDDLE EAST</span><span className="map-label l3">ASIA PACIFIC</span></div></section>
+
+      <section className="demo-section" id="demo"><div className="section-shell demo-inner"><div><p className="eyebrow">LET'S SHAPE WHAT'S NEXT</p><h2>Ready to transform<br/>your pathology workflow?</h2></div><div><p>Talk with our team about your clinical, operational and deployment needs.</p><a className="demo-button light" href="mailto:international@huayinhealthcare.com">Request a demo <span>→</span></a></div></div></section>
+    </main>
+    <footer id="contact"><div className="section-shell footer-grid"><div><Logo /><p>AI-powered pathology solutions for a more connected global healthcare future.</p></div><div><h4>Explore</h4><a href="#platform">AI Solutions</a><a href="#platform">Products & Platform</a><a href="#solutions">Solutions</a></div><div><h4>Connect</h4><a href="#contact">Global Offices</a><a href="#demo">Request a Demo</a><a href="mailto:international@huayinhealthcare.com">Contact us</a></div><div><h4>Legal</h4><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Regulatory Compliance</a></div></div><div className="footer-base section-shell"><span>© 2026 Huayin Healthcare Group. All rights reserved.</span><span>Guangzhou · Global</span></div></footer>
+  </div>
+}
+
+createRoot(document.getElementById('root')).render(<App />)
