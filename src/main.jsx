@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
+import './coverage.css'
 
 const navItems = [
-  { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'Global Presence'] },
+  { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
   { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis'] },
   { label: 'Products & Platform', items: ['AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology', 'LIS & Integration'] },
   { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions'] },
@@ -148,7 +149,7 @@ function App() {
 
       <section className="company-intro" id="company"><div className="section-shell"><div><p className="eyebrow blue">ABOUT HUAYIN HEALTHCARE</p><h2>A global pathology partner, built on clinical practice.</h2></div><div className="company-intro-copy"><p>Guangzhou Huayin Healthcare Group is a global provider of pathology-focused independent clinical laboratory services. As a pioneer in telepathology, we connect clinical expertise, data and technology to advance smarter pathology worldwide.</p><a className="text-button" href="#contact">Connect with Huayin <span>→</span></a></div></div></section>
 
-      <section className="global section-shell"><div><p className="eyebrow blue">GLOBAL BY DESIGN</p><h2>Local partnership.<br/>Worldwide perspective.</h2><p>We work alongside healthcare organizations across regions, providing technology, service and deployment models that respect local needs.</p><a className="text-button" href="#contact">View global presence <span>→</span></a></div><div className="world-map"><span className="map-dot d1"></span><span className="map-dot d2"></span><span className="map-dot d3"></span><span className="map-dot d4"></span><span className="map-label l1">EUROPE</span><span className="map-label l2">MIDDLE EAST</span><span className="map-label l3">ASIA PACIFIC</span></div></section>
+      <section className="china-coverage section-shell" id="coverage"><div className="coverage-copy"><p className="eyebrow blue">CHINA COVERAGE</p><h2>Local reach.<br/>Connected expertise.</h2><p>Huayin serves healthcare partners across 29 provincial-level regions in China. Our network includes 22 provincial-level service sites, with multiple sites operating in selected cities to meet local clinical and operational needs.</p><a className="text-button" href="#contact">Connect with Huayin <span>→</span></a></div><div className="coverage-panel" aria-label="China coverage and service site network"><div className="coverage-orbit orbit-one"></div><div className="coverage-orbit orbit-two"></div><div className="coverage-stat coverage-stat-regions"><span>29</span><b>Provincial-level regions<br/>covered</b></div><div className="coverage-stat coverage-stat-sites"><span>22</span><b>Provincial-level<br/>service sites</b></div><div className="coverage-caption"><i></i><span>China service network</span></div><details className="regional-locations"><summary>Key regional locations <span>+</span></summary><p>Guangzhou · Chengdu · Guangxi · Nanjing · Guizhou · Tianjin · Xiamen · Chongqing · Nanchang · Jinan · Liaoning · Shaanxi · Changsha · Zhengzhou · Kunming · Wuhan · Shizuishan · Heilongjiang</p></details></div></section>
 
       <section className="demo-section" id="demo"><div className="section-shell demo-inner"><div><p className="eyebrow">LET'S SHAPE WHAT'S NEXT</p><h2>Ready to transform<br/>your pathology workflow?</h2></div><div><p>Talk with our team about your clinical, operational and deployment needs.</p><a className="demo-button light" href="mailto:international@huayinhealthcare.com">Request a demo <span>→</span></a></div></div></section>
     </main>
