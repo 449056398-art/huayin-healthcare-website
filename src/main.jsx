@@ -4,23 +4,23 @@ import './styles.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'Global Presence'] },
-  { label: 'AI Solutions', items: ['Panopath AI Platform', 'AI Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis'] },
+  { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis'] },
   { label: 'Products & Platform', items: ['AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology', 'LIS & Integration'] },
   { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions'] },
   { label: 'Resources', items: ['Clinical Evidence', 'Case Studies', 'News & Insights'] },
 ]
 
 const stats = [
-  { value: 10, suffix: 'M+', label: 'WSIs database' },
-  { value: 5, suffix: 'M+', label: 'AI-assisted diagnostic WSIs' },
-  { value: 12800, suffix: '+', label: 'Hospitals served' },
-  { value: 240, suffix: '+', label: 'Pathologists' },
+  { value: 10, suffix: 'M+', label: 'Real-world whole-slide images' },
+  { value: 40, suffix: '+', label: 'Disease-specific AI models' },
+  { value: 99, suffix: '%', label: 'Routine diagnostic scenarios covered' },
+  { value: 2400, suffix: '+', label: 'Healthcare institutions served' },
 ]
 
 const capabilities = [
-  ['AI-powered diagnostics', 'Support confident, consistent pathology decisions with AI analysis built into the clinical workflow.'],
-  ['Digital workflow', 'Connect slide scanning, image management, AI review and reporting in one streamlined platform.'],
-  ['Flexible deployment', 'Choose cloud, on-premise or hybrid deployment aligned with local data and compliance needs.'],
+  ['Real-world data intelligence', 'PanoPath learns from more than 10 million real-world whole-slide images collected through clinical practice.'],
+  ['Foundation model capabilities', 'A pathology foundation model that delivers leading performance in multi-task evaluation.'],
+  ['Disease-specific AI', 'More than 40 disease-specific AI models support over 99% of routine diagnostic scenarios.'],
 ]
 
 const solutionModules = [
@@ -34,8 +34,9 @@ const solutionModules = [
 
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
 
-function Logo() {
-  return <a className="brand" href="#top" aria-label="Huayin Healthcare home"><img src={assetUrl('images/huayin-healthcare-logo.png')} alt="Huayin Healthcare Group" /></a>
+function Logo({ variant = 'header' }) {
+  const logoFile = variant === 'footer' ? 'images/huayin-logo-footer.png' : 'images/huayin-logo-header.png'
+  return <a className={`brand brand-${variant}`} href="#top" aria-label="Huayin Healthcare home"><img src={assetUrl(logoFile)} alt="Huayin Healthcare Group" /></a>
 }
 
 function Header() {
@@ -121,30 +122,37 @@ function App() {
     <Header />
     <main>
       <section className="hero hero-video">
-        <video className="hero-video-media" autoPlay muted loop playsInline aria-hidden="true"><source src={assetUrl('videos/homepage-hero-v2.mp4')} type="video/mp4" /></video>
+        <video className="hero-video-media" autoPlay muted loop playsInline aria-hidden="true"><source src={assetUrl('videos/homepage-hero.mp4')} type="video/mp4" /></video>
         <div className="hero-video-overlay"></div>
         <div className="hero-content hero-video-content">
           <p className="eyebrow">HUAYIN HEALTHCARE GROUP</p>
-          <h1><span>PATHOLOGY</span><span>POWERED</span><span>BY AI</span></h1>
-          <a className="hero-video-link" href="#platform">Explore our AI solutions <span>→</span></a>
+          <h1><span>Beyond</span><span>Diagnosis.</span></h1>
+          <p className="hero-statement">Building the future of smart pathology with the collective intelligence of millions of cases.</p>
+          <a className="hero-video-link" href="#platform">Discover PanoPath <span>→</span></a>
         </div>
       </section>
 
       <section className="stats section-shell">{stats.map((stat) => <AnimatedStat key={stat.label} {...stat} />)}</section>
 
-      <section className="intro section-shell" id="platform"><div><p className="eyebrow blue">ONE CONNECTED ECOSYSTEM</p><h2>Precision technology.<br/>Practical impact.</h2></div><p>From image acquisition through reporting, our connected pathology ecosystem is designed around the realities of clinical practice. Bring together the capabilities your team needs today and grow with confidence tomorrow.</p></section>
+      <section className="intro section-shell" id="platform"><div><p className="eyebrow blue">THE INTELLIGENCE BEHIND SMARTER PATHOLOGY</p><h2>From every case,<br/>a better next case.</h2></div><p>As a pioneer in telepathology, Huayin has built a real-world pathology data foundation that brings big data, algorithms and clinical scenarios into one continuously improving ecosystem.</p></section>
 
       <section className="capability-section"><div className="section-shell"><div className="section-heading"><p className="eyebrow blue">WHAT WE ENABLE</p><h2>Built for the next era<br/>of pathology.</h2><a className="text-button" href="#solutions">Discover our capabilities <span>→</span></a></div><div className="capability-grid">{capabilities.map(([title, copy], i) => <article className="capability-card" key={title}><span className={'card-number n' + i}>0{i + 1}</span><div className="card-icon">{i === 0 ? '✦' : i === 1 ? '◫' : '◌'}</div><h3>{title}</h3><p>{copy}</p><a href="#demo" aria-label={`Learn about ${title}`}>Learn more <span>→</span></a></article>)}</div></div></section>
 
-      <section className="workflow section-shell"><div className="workflow-visual"><div className="workflow-circle"><span>SCAN</span><span>ANALYZE</span><span>REPORT</span><b>AI</b></div></div><div className="workflow-copy"><p className="eyebrow blue">THE PANOPATH PLATFORM</p><h2>A clearer path from slide to insight.</h2><p>Panopath connects every stage of your digital pathology workflow in a single, intelligent environment—giving teams the information and flexibility to work at their best.</p><ul><li>Intelligent image management</li><li>AI-assisted clinical review</li><li>Open integration and scalable deployment</li></ul><a className="text-button" href="#demo">Explore the platform <span>→</span></a></div></section>
+      <section className="workflow section-shell"><div className="workflow-visual"><div className="workflow-circle"><span>DATA</span><span>LEARN</span><span>ASSIST</span><b>AI</b></div></div><div className="workflow-copy"><p className="eyebrow blue">THE PanoPath PLATFORM</p><h2>PanoPath: a foundation model for pathology.</h2><p>Trained on Huayin's large real-world WSI database, PanoPath achieves leading performance in multi-task evaluation and turns accumulated clinical intelligence into practical diagnostic assistance.</p><ul><li>10M+ real-world whole-slide images</li><li>40+ disease-specific AI models</li><li>Clinical intelligence designed for daily practice</li></ul><a className="text-button" href="#demo">Explore PanoPath <span>→</span></a></div></section>
+
+      <section className="closed-loop"><div className="section-shell"><div className="closed-loop-heading"><p className="eyebrow">A SELF-REINFORCING ECOSYSTEM</p><h2>Intelligence that keeps<br/>moving forward.</h2><p>Real-world clinical practice makes the ecosystem smarter with every cycle.</p></div><div className="loop-steps"><article><span>01</span><h3>Big data</h3><p>Millions of whole-slide images from real clinical practice.</p></article><i>→</i><article><span>02</span><h3>Algorithms</h3><p>PanoPath and disease-specific AI models learn from data.</p></article><i>→</i><article><span>03</span><h3>Clinical scenarios</h3><p>AI supports everyday pathology decisions and workflows.</p></article><i>→</i><article><span>04</span><h3>Continuous iteration</h3><p>Clinical feedback strengthens the next generation of intelligence.</p></article></div></div></section>
+
+      <section className="clinical-value section-shell"><div className="clinical-value-copy"><p className="eyebrow blue">PROVEN IN REAL-WORLD PRACTICE</p><h2>More intelligence.<br/>More value in every diagnosis.</h2><p>As an intelligent pathology assistant, Huayin AI has been proven across millions of real-world cases to help healthcare teams work better.</p></div><div className="value-grid"><article><span>01</span><h3>Enhance efficiency</h3><p>Support pathologists with timely AI-assisted review and streamlined workflows.</p></article><article><span>02</span><h3>Reduce costs</h3><p>Help laboratories optimize operations through connected digital pathology.</p></article><article><span>03</span><h3>Improve quality</h3><p>Bring consistent intelligence to more diagnostic decisions, wherever patients are.</p></article></div></section>
 
       <section className="solutions-section" id="solutions"><div className="section-shell"><div className="solutions-intro"><div><p className="eyebrow">SOLUTIONS DESIGNED AROUND YOU</p><h2>One connected ecosystem.<br/>Built for pathology.</h2></div><div className="solutions-summary"><p>AI <span>+</span> PIS <span>+</span> Hardware <span>+</span> Services</p><small>Four-in-one intelligent pathology solution</small></div></div><div className="solution-modules">{solutionModules.map((item, index) => <SolutionModule item={item} index={index} key={item.title} />)}</div></div></section>
+
+      <section className="company-intro" id="company"><div className="section-shell"><div><p className="eyebrow blue">ABOUT HUAYIN HEALTHCARE</p><h2>A global pathology partner, built on clinical practice.</h2></div><div className="company-intro-copy"><p>Guangzhou Huayin Healthcare Group is a global provider of pathology-focused independent clinical laboratory services. As a pioneer in telepathology, we connect clinical expertise, data and technology to advance smarter pathology worldwide.</p><a className="text-button" href="#contact">Connect with Huayin <span>→</span></a></div></div></section>
 
       <section className="global section-shell"><div><p className="eyebrow blue">GLOBAL BY DESIGN</p><h2>Local partnership.<br/>Worldwide perspective.</h2><p>We work alongside healthcare organizations across regions, providing technology, service and deployment models that respect local needs.</p><a className="text-button" href="#contact">View global presence <span>→</span></a></div><div className="world-map"><span className="map-dot d1"></span><span className="map-dot d2"></span><span className="map-dot d3"></span><span className="map-dot d4"></span><span className="map-label l1">EUROPE</span><span className="map-label l2">MIDDLE EAST</span><span className="map-label l3">ASIA PACIFIC</span></div></section>
 
       <section className="demo-section" id="demo"><div className="section-shell demo-inner"><div><p className="eyebrow">LET'S SHAPE WHAT'S NEXT</p><h2>Ready to transform<br/>your pathology workflow?</h2></div><div><p>Talk with our team about your clinical, operational and deployment needs.</p><a className="demo-button light" href="mailto:international@huayinhealthcare.com">Request a demo <span>→</span></a></div></div></section>
     </main>
-    <footer id="contact"><div className="section-shell footer-grid"><div><Logo /><p>AI-powered pathology solutions for a more connected global healthcare future.</p></div><div><h4>Explore</h4><a href="#platform">AI Solutions</a><a href="#platform">Products & Platform</a><a href="#solutions">Solutions</a></div><div><h4>Connect</h4><a href="#contact">Global Offices</a><a href="#demo">Request a Demo</a><a href="mailto:international@huayinhealthcare.com">Contact us</a></div><div><h4>Legal</h4><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Regulatory Compliance</a></div></div><div className="footer-base section-shell"><span>© 2026 Huayin Healthcare Group. All rights reserved.</span><span>Guangzhou · Global</span></div></footer>
+    <footer id="contact"><div className="section-shell footer-grid"><div><Logo variant="footer" /><p>AI-powered pathology solutions for a more connected global healthcare future.</p></div><div><h4>Explore</h4><a href="#company">Company</a><a href="#platform">PanoPath</a><a href="#solutions">Solutions</a></div><div><h4>Connect</h4><a href="#contact">Global Offices</a><a href="#demo">Request a Demo</a><a href="mailto:international@huayinhealthcare.com">Contact us</a></div><div><h4>Legal</h4><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Regulatory Compliance</a></div></div><div className="footer-base section-shell"><span>© 2026 Huayin Healthcare Group. All rights reserved.</span><span>Guangzhou · Global</span></div></footer>
   </div>
 }
 
