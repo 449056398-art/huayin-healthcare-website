@@ -182,7 +182,7 @@ function App() {
     <Header />
     <main>
       <section className="hero hero-video">
-        <video className="hero-video-media" autoPlay muted loop playsInline aria-hidden="true"><source src={assetUrl('videos/homepage-hero.mp4')} type="video/mp4" /></video>
+        <video className="hero-video-media" autoPlay muted loop playsInline aria-hidden="true"><source src={assetUrl('videos/homepage-hero-v2.mp4')} type="video/mp4" /></video>
         <div className="hero-video-overlay"></div>
         <div className="hero-content hero-video-content">
           <p className="eyebrow">HUAYIN HEALTHCARE GROUP</p>
