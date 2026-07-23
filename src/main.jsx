@@ -4,6 +4,7 @@ import './styles.css'
 import './coverage.css'
 import './coverage-switch.css'
 import './coverage-refine.css'
+import './pathology-viewer.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
@@ -124,7 +125,37 @@ function SolutionModule({ item, index }) {
   </article>
 }
 
+function PathologyViewer() {
+  const [mode, setMode] = useState('heatmap')
+  const [split, setSplit] = useState(52)
+  const [dragging, setDragging] = useState(false)
+  const updateSplit = (event) => {
+    if (!dragging && event.type === 'pointermove') return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    setSplit(Math.max(8, Math.min(92, ((event.clientX - bounds.left) / bounds.width) * 100)))
+  }
+  const overlay = mode === 'heatmap' ? 'images/pathology-heatmap.png' : 'images/pathology-lesion-map.png'
+  const label = mode === 'heatmap' ? 'AI heatmap' : 'Lesion distribution'
+  return <div className="pathology-viewer">
+    <div className="viewer-toolbar"><span><i></i>AI-assisted review</span><div><button className={mode === 'heatmap' ? 'active' : ''} onClick={() => setMode('heatmap')}>Heatmap</button><button className={mode === 'lesion' ? 'active' : ''} onClick={() => setMode('lesion')}>Lesion map</button></div></div>
+    <div className="viewer-canvas" onPointerDown={(event) => { setDragging(true); event.currentTarget.setPointerCapture(event.pointerId); updateSplit(event) }} onPointerMove={updateSplit} onPointerUp={() => setDragging(false)} onPointerLeave={() => setDragging(false)}>
+      <img src={assetUrl('images/pathology-original.png')} alt="Original pathology slide" />
+      <div className="viewer-overlay" style={{ clipPath: `inset(0 0 0 ${split}%)` }}><img src={assetUrl(overlay)} alt={`${label} result`} /></div>
+      <div className="viewer-divider" style={{ left: `${split}%` }}><span>↔</span></div>
+      <span className="viewer-state original">Original slide</span><span className="viewer-state result">{label}</span>
+    </div>
+    <label className="viewer-slider"><span>Slide to compare</span><input type="range" min="8" max="92" value={split} onChange={(event) => setSplit(Number(event.target.value))} aria-label="Compare original slide and AI result" /></label>
+  </div>
+}
+
 function App() {
+  useEffect(() => {
+    const mount = document.querySelector('.workflow-visual')
+    if (!mount) return undefined
+    const viewerRoot = createRoot(mount)
+    viewerRoot.render(<PathologyViewer />)
+    return () => viewerRoot.unmount()
+  }, [])
   return <div id="top">
     <Header />
     <main>
