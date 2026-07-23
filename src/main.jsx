@@ -9,6 +9,7 @@ import './coverage-svg.css'
 import './ecosystem-loop.css'
 import './ecosystem-layout.css'
 import './company-headquarters.css'
+import './ecosystem-refine.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
@@ -154,7 +155,7 @@ function PathologyViewer() {
 
 function EcosystemLoop() {
   return <div className="ecosystem-loop" aria-label="Self-reinforcing pathology intelligence loop">
-    <svg className="ecosystem-lines" viewBox="0 0 720 430" aria-hidden="true"><defs><marker id="loop-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L8 4.5L0 9z" fill="#178bc8"/></marker></defs><path d="M360 94L158 335L562 335Z"/><path className="loop-segment segment-one" d="M360 108L176 328" markerEnd="url(#loop-arrow)"/><path className="loop-segment segment-two" d="M181 345L542 345" markerEnd="url(#loop-arrow)"/><path className="loop-segment segment-three" d="M553 325L370 108" markerEnd="url(#loop-arrow)"/><path className="loop-return" d="M548 314L378 111" markerEnd="url(#loop-arrow)"/><circle className="orbit orbit-one" cx="251" cy="220" r="5"/><circle className="orbit orbit-two" cx="430" cy="345" r="5"/><circle className="orbit orbit-three" cx="469" cy="215" r="5"/></svg>
+    <svg className="ecosystem-lines" viewBox="0 0 720 430" aria-hidden="true"><defs><marker id="loop-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L9 5L0 10z" fill="#087dc1"/></marker></defs><path className="loop-segment segment-one" d="M315 158L182 267" markerEnd="url(#loop-arrow)"/><path className="loop-segment segment-two" d="M184 350L536 350" markerEnd="url(#loop-arrow)"/><path className="loop-segment segment-three" d="M538 268L405 162" markerEnd="url(#loop-arrow)"/><circle className="orbit orbit-one" cx="251" cy="220" r="5"/><circle className="orbit orbit-two" cx="430" cy="350" r="5"/><circle className="orbit orbit-three" cx="469" cy="215" r="5"/></svg>
     <div className="loop-node node-data"><span className="node-icon">⌁</span><b>Real-world<br/>data</b><small>10M+ whole-slide images</small></div>
     <div className="loop-node node-algorithm"><span className="node-icon">✦</span><b>PanoPath<br/>algorithms</b><small>Foundation model intelligence</small></div>
     <div className="loop-node node-practice"><span className="node-icon">◌</span><b>Clinical<br/>practice</b><small>AI-assisted daily workflows</small></div>
