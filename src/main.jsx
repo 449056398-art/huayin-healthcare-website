@@ -6,6 +6,7 @@ import './coverage-switch.css'
 import './coverage-refine.css'
 import './pathology-viewer.css'
 import './coverage-svg.css'
+import './ecosystem-loop.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
@@ -149,6 +150,17 @@ function PathologyViewer() {
   </div>
 }
 
+function EcosystemLoop() {
+  return <div className="ecosystem-loop" aria-label="Self-reinforcing pathology intelligence loop">
+    <svg className="ecosystem-lines" viewBox="0 0 720 430" aria-hidden="true"><defs><marker id="loop-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L8 4.5L0 9z" fill="#178bc8"/></marker></defs><path d="M360 94L158 335L562 335Z"/><path className="loop-segment segment-one" d="M360 108L176 328" markerEnd="url(#loop-arrow)"/><path className="loop-segment segment-two" d="M181 345L542 345" markerEnd="url(#loop-arrow)"/><path className="loop-segment segment-three" d="M553 325L370 108" markerEnd="url(#loop-arrow)"/><circle className="orbit orbit-one" cx="251" cy="220" r="5"/><circle className="orbit orbit-two" cx="430" cy="345" r="5"/><circle className="orbit orbit-three" cx="469" cy="215" r="5"/></svg>
+    <div className="loop-node node-data"><span className="node-icon">⌁</span><b>Real-world<br/>data</b><small>10M+ whole-slide images</small></div>
+    <div className="loop-node node-algorithm"><span className="node-icon">✦</span><b>PanoPath<br/>algorithms</b><small>Foundation model intelligence</small></div>
+    <div className="loop-node node-practice"><span className="node-icon">◌</span><b>Clinical<br/>practice</b><small>AI-assisted daily workflows</small></div>
+    <div className="loop-core"><i>∞</i><b>Continuous<br/>learning</b><span>Feedback · train · deploy</span></div>
+    <span className="loop-label label-data">DATA FEEDBACK</span><span className="loop-label label-train">MODEL TRAINING</span><span className="loop-label label-deploy">DEPLOYED INSIGHTS</span>
+  </div>
+}
+
 function App() {
   useEffect(() => {
     const mount = document.querySelector('.workflow-visual')
@@ -156,6 +168,13 @@ function App() {
     const viewerRoot = createRoot(mount)
     viewerRoot.render(<PathologyViewer />)
     return () => viewerRoot.unmount()
+  }, [])
+  useEffect(() => {
+    const mount = document.querySelector('.loop-steps')
+    if (!mount) return undefined
+    const loopRoot = createRoot(mount)
+    loopRoot.render(<EcosystemLoop />)
+    return () => loopRoot.unmount()
   }, [])
   return <div id="top">
     <Header />
