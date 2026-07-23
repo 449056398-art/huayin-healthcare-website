@@ -8,6 +8,7 @@ import './pathology-viewer.css'
 import './coverage-svg.css'
 import './ecosystem-loop.css'
 import './ecosystem-layout.css'
+import './company-headquarters.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
