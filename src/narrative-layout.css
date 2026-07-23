@@ -1,0 +1,195 @@
+/* Alternating narrative rhythm from the ecosystem to the page close. */
+
+/* The ecosystem remains the analytical anchor: narrative at left, live system at right. */
+.closed-loop {
+  position: relative;
+}
+
+/* Clinical proof becomes a pause in the story: one focused message, then three rising outcomes. */
+.clinical-value {
+  display: block !important;
+  padding: 118px 0 124px !important;
+}
+
+.clinical-value-copy {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clinical-value-copy > p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 20px auto 0 !important;
+}
+
+.value-grid {
+  margin-top: 48px;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 18px !important;
+  align-items: end;
+}
+
+.value-grid article {
+  min-height: 218px !important;
+  border-top: 3px solid #53bfe1;
+  background: linear-gradient(145deg, #f7fcff, #e8f6fb) !important;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.value-grid article:nth-child(2) {
+  min-height: 252px !important;
+  background: linear-gradient(150deg, #effaff, #dceff8) !important;
+}
+
+.value-grid article:nth-child(3) {
+  min-height: 232px !important;
+}
+
+.value-grid article:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 34px rgba(14, 84, 139, .12);
+}
+
+.value-grid h3 {
+  margin-top: 29px !important;
+}
+
+/* Company proof leads with the headquarters image, then stacks the message alongside it. */
+.company-intro > .section-shell {
+  grid-template-columns: 1.08fr .92fr !important;
+  grid-template-rows: auto auto;
+  gap: 20px 68px !important;
+  align-items: start !important;
+}
+
+.company-intro > .section-shell:after {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  min-height: 354px !important;
+  padding: 22px !important;
+}
+
+.company-intro > .section-shell > :first-child {
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 9px;
+}
+
+.company-intro > .section-shell > :nth-child(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Coverage reverses the composition: geographic evidence first, context second. */
+.china-coverage {
+  grid-template-columns: 1.1fr .72fr !important;
+  gap: 76px !important;
+}
+
+.china-coverage .coverage-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.china-coverage .coverage-copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* The close is a single, confident invitation instead of another split layout. */
+.demo-section {
+  padding: 96px 0 100px !important;
+  background:
+    radial-gradient(circle at 50% 130%, rgba(106, 214, 239, .24), transparent 42%),
+    linear-gradient(115deg, #06306d, #075cad 58%, #0a7ab9) !important;
+}
+
+.demo-inner {
+  display: block !important;
+  max-width: 800px;
+  text-align: center;
+}
+
+.demo-inner .eyebrow {
+  margin-bottom: 18px;
+  color: #87def1 !important;
+}
+
+.demo-inner h2 {
+  max-width: 670px;
+  margin: 0 auto !important;
+  font-size: clamp(38px, 4.5vw, 58px) !important;
+}
+
+.demo-inner > div:last-child {
+  width: auto !important;
+  max-width: 470px;
+  margin: 23px auto 0;
+}
+
+.demo-inner p:not(.eyebrow) {
+  margin-bottom: 27px !important;
+}
+
+.demo-button.light {
+  color: #0756a8 !important;
+  box-shadow: 0 12px 28px rgba(0, 22, 73, .2) !important;
+}
+
+@media (max-width: 900px) {
+  .company-intro > .section-shell,
+  .china-coverage {
+    grid-template-columns: 1fr !important;
+  }
+
+  .company-intro > .section-shell:after,
+  .company-intro > .section-shell > :first-child,
+  .company-intro > .section-shell > :nth-child(2),
+  .china-coverage .coverage-panel,
+  .china-coverage .coverage-copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .company-intro > .section-shell:after {
+    order: 1;
+    min-height: 300px !important;
+  }
+
+  .company-intro > .section-shell > :first-child {
+    order: 2;
+  }
+
+  .company-intro > .section-shell > :nth-child(2) {
+    order: 3;
+  }
+
+  .china-coverage .coverage-panel {
+    order: 1;
+  }
+
+  .china-coverage .coverage-copy {
+    order: 2;
+  }
+}
+
+@media (max-width: 680px) {
+  .clinical-value {
+    padding: 82px 0 88px !important;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr !important;
+    margin-top: 34px;
+  }
+
+  .value-grid article,
+  .value-grid article:nth-child(2),
+  .value-grid article:nth-child(3) {
+    min-height: auto !important;
+  }
+
+  .demo-section {
+    padding: 80px 0 84px !important;
+  }
+}

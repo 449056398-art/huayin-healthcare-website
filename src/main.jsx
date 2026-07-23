@@ -10,6 +10,7 @@ import './ecosystem-loop.css'
 import './ecosystem-layout.css'
 import './company-headquarters.css'
 import './ecosystem-refine.css'
+import './narrative-layout.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
