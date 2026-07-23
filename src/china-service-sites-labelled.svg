@@ -8,6 +8,8 @@ viewBox="0 0 5618.24 6607.91"
  <defs>
   <style type="text/css">
    #service-site-labels{display:none}
+   .fil0,.fil1,.fil2,.fil3,.fil4,.fil5,.fil6,.fil7,.fil8,.fil9,.fil10,.fil11,.fil12{fill:none!important;stroke:#8fa8be!important;stroke-width:5.5!important;stroke-linejoin:round!important}
+   .str0{stroke:#1b5d8d!important;stroke-width:8!important}
    <![CDATA[
     .str1 {stroke:#FEFEFE;stroke-width:9.67;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:0.800000}
     .str3 {stroke:#FEFEFE;stroke-width:9.67;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:0.800000}
