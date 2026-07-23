@@ -136,12 +136,12 @@ function PathologyViewer() {
     const bounds = event.currentTarget.getBoundingClientRect()
     setSplit(Math.max(8, Math.min(92, ((event.clientX - bounds.left) / bounds.width) * 100)))
   }
-  const overlay = mode === 'heatmap' ? 'images/pathology-heatmap.png' : 'images/pathology-lesion-map.png'
+  const overlay = mode === 'heatmap' ? 'images/panopath-slide-heatmap-v2.png' : 'images/panopath-slide-lesion-v2.png'
   const label = mode === 'heatmap' ? 'AI heatmap' : 'Lesion distribution'
   return <div className="pathology-viewer">
     <div className="viewer-toolbar"><span><i></i>AI-assisted review</span><div><button className={mode === 'heatmap' ? 'active' : ''} onClick={() => setMode('heatmap')}>Heatmap</button><button className={mode === 'lesion' ? 'active' : ''} onClick={() => setMode('lesion')}>Lesion map</button></div></div>
     <div className="viewer-canvas" onPointerDown={(event) => { setDragging(true); event.currentTarget.setPointerCapture(event.pointerId); updateSplit(event) }} onPointerMove={updateSplit} onPointerUp={() => setDragging(false)} onPointerLeave={() => setDragging(false)}>
-      <img src={assetUrl('images/pathology-original.png')} alt="Original pathology slide" />
+      <img src={assetUrl('images/panopath-slide-original-v2.png')} alt="Original pathology slide" />
       <div className="viewer-overlay" style={{ clipPath: `inset(0 0 0 ${split}%)` }}><img src={assetUrl(overlay)} alt={`${label} result`} /></div>
       <div className="viewer-divider" style={{ left: `${split}%` }}><span>↔</span></div>
       <span className="viewer-state original">Original slide</span><span className="viewer-state result">{label}</span>
