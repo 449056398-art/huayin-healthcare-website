@@ -5,6 +5,7 @@ import './coverage.css'
 import './coverage-switch.css'
 import './coverage-refine.css'
 import './pathology-viewer.css'
+import './coverage-svg.css'
 
 const navItems = [
   { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
