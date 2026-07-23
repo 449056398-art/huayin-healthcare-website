@@ -34,7 +34,16 @@ const capabilities = [
 ]
 
 const coverageMarkers = [
-  ['Heilongjiang', 79.5, 20.7, 'coverage', 7, -8], ['Jilin', 78.1, 25, 'coverage', 7, 5], ['Liaoning', 74.2, 32.2, 'service', 7, -8], ['Inner Mongolia', 60.9, 17.9, 'coverage', -36, -8], ['Beijing', 64.9, 39.3, 'coverage', 7, -9], ['Tianjin', 67.6, 39.3, 'service', 7, 5], ['Hebei', 64.9, 43.6, 'coverage', -27, 7], ['Shandong', 70.2, 49.3, 'service', 7, -8], ['Shanxi', 60.9, 45.1, 'coverage', -28, -7], ['Ningxia', 49, 45.1, 'service', -29, -7], ['Gansu', 45.1, 49.3, 'coverage', -25, 8], ['Qinghai', 39.8, 52.2, 'coverage', -28, -7], ['Shaanxi', 55.7, 55.1, 'service', -30, 7], ['Henan', 62.3, 53.6, 'service', 7, 7], ['Jiangsu', 70.2, 59.4, 'service', 7, -8], ['Shanghai', 74.2, 60.8, 'coverage', 7, 7], ['Anhui', 66.2, 59.4, 'coverage', -26, 8], ['Zhejiang', 70.2, 66.5, 'coverage', 7, -6], ['Hubei', 62.3, 62.2, 'service', -27, -7], ['Sichuan', 51.7, 63.6, 'service', -28, -7], ['Chongqing', 54.3, 66.5, 'service', 7, 8], ['Jiangxi', 66.2, 67.9, 'service', 7, 7], ['Hunan', 60.9, 70.8, 'service', -26, 7], ['Fujian', 68.9, 75.1, 'service', 7, 7], ['Guizhou', 54.3, 76.5, 'service', -31, 6], ['Yunnan', 46.4, 82.2, 'service', -25, -8], ['Guangxi', 55.7, 86.5, 'service', -28, 7], ['Guangdong', 63.6, 85.1, 'service', 7, 7], ['Hainan', 58.3, 93.7, 'coverage', 7, -7],
+  ['Heilongjiang', 77, 15, 'service', 7, -8], ['Jilin', 73, 20, 'coverage', 7, 5], ['Liaoning', 70, 24, 'service', 7, -8],
+  ['Inner Mongolia', 58, 17, 'coverage', -36, -8], ['Beijing', 67, 27, 'coverage', 7, -9], ['Tianjin', 69, 28, 'service', 7, 5],
+  ['Hebei', 65, 30, 'coverage', -27, 7], ['Shandong', 69, 35, 'service', 7, -8], ['Shanxi', 60, 34, 'coverage', -28, -7],
+  ['Ningxia', 48, 34, 'service', -29, -7], ['Gansu', 45, 39, 'coverage', -25, 8], ['Qinghai', 40, 43, 'coverage', -28, -7],
+  ['Shaanxi', 55, 40, 'service', -30, 7], ['Henan', 62, 40, 'service', 7, 7], ['Jiangsu', 70, 44, 'service', 7, -8],
+  ['Shanghai', 74, 46, 'coverage', 7, 7], ['Anhui', 66, 45, 'coverage', -26, 8], ['Zhejiang', 70, 50, 'coverage', 7, -6],
+  ['Hubei', 61, 48, 'service', -27, -7], ['Sichuan', 52, 50, 'service', -28, -7], ['Chongqing', 56, 52, 'service', 7, 8],
+  ['Jiangxi', 66, 52, 'service', 7, 7], ['Hunan', 61, 55, 'service', -26, 7], ['Fujian', 70, 55, 'service', 7, 7],
+  ['Guizhou', 56, 57, 'service', -31, 6], ['Yunnan', 49, 60, 'service', -25, -8], ['Guangxi', 55, 63, 'service', -28, 7],
+  ['Guangdong', 63, 62, 'service', 7, 7], ['Hainan', 61, 70, 'coverage', 7, -7],
 ]
 
 const laboratoryRegions = ['Guangdong', 'Sichuan', 'Guangxi', 'Jiangsu', 'Guizhou', 'Tianjin', 'Fujian', 'Chongqing', 'Jiangxi', 'Shandong', 'Liaoning', 'Shaanxi', 'Hunan', 'Henan', 'Yunnan', 'Hubei', 'Ningxia', 'Heilongjiang']
