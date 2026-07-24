@@ -5,54 +5,72 @@
   position: relative;
 }
 
-/* Clinical proof becomes a pause in the story: one focused message, then three rising outcomes. */
+/* Clinical proof uses a compact editorial layout with three distinctive value signals. */
 .clinical-value {
-  display: block !important;
-  padding: 118px 0 124px !important;
+  display: grid !important;
+  grid-template-columns: .76fr 1.24fr;
+  gap: 76px !important;
+  align-items: center;
+  padding: 102px 0 !important;
 }
 
 .clinical-value-copy {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 455px;
+  margin: 0;
+  text-align: left;
 }
 
 .clinical-value-copy > p:not(.eyebrow) {
-  max-width: 620px;
-  margin: 20px auto 0 !important;
+  max-width: 430px;
+  margin: 21px 0 0 !important;
 }
 
 .value-grid {
-  margin-top: 48px;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 18px !important;
-  align-items: end;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 11px !important;
+  margin: 0;
 }
 
-.value-grid article {
-  min-height: 218px !important;
-  border-top: 3px solid #53bfe1;
-  background: linear-gradient(145deg, #f7fcff, #e8f6fb) !important;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.value-grid article:nth-child(2) {
-  min-height: 252px !important;
-  background: linear-gradient(150deg, #effaff, #dceff8) !important;
-}
-
+.value-grid article,
+.value-grid article:nth-child(2),
 .value-grid article:nth-child(3) {
-  min-height: 232px !important;
+  min-height: 122px !important;
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) 24px;
+  gap: 19px;
+  align-items: center;
+  padding: 18px 22px !important;
+  border: 1px solid #d8eaf2;
+  border-left: 3px solid #55c6e2;
+  background: linear-gradient(100deg, #f8fdff, #ebf8fc) !important;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
-.value-grid article:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 18px 34px rgba(14, 84, 139, .12);
-}
+.value-grid article:nth-child(2) { border-left-color: #1689c6; background: linear-gradient(100deg, #f4fbff, #e2f3fa) !important; }
+.value-grid article:nth-child(3) { border-left-color: #e9843f; background: linear-gradient(100deg, #fbfdfe, #eef7fa) !important; }
 
-.value-grid h3 {
-  margin-top: 29px !important;
-}
+.value-grid article:hover { transform: translateX(7px); box-shadow: 0 14px 29px rgba(14, 84, 139, .11); }
+.value-grid article > div:nth-child(2) > span { color: #1683be; font: 700 8px/1.3 'DM Mono',monospace; letter-spacing: .08em; }
+.value-grid h3 { margin: 7px 0 4px !important; font-size: 18px !important; }
+.value-grid p { margin: 0; max-width: 430px; }
+.value-grid > article > b { color: #0d70b5; font-size: 18px; font-weight: 500; transition: transform .25s ease; }
+.value-grid article:hover > b { transform: translate(3px, -3px); }
+
+.value-visual { width: 62px; height: 62px; position: relative; display: grid; place-items: center; border-radius: 50%; background: #063b7d; overflow: hidden; }
+.value-visual:before,.value-visual:after,.value-visual i { content: ''; position: absolute; display: block; }
+.value-efficiency .value-visual:before { width: 26px; height: 26px; border: 1px solid rgba(123,224,239,.9); border-radius: 50%; }
+.value-efficiency .value-visual:after { width: 7px; height: 7px; border-radius: 50%; background: #78deef; box-shadow: 0 0 0 8px rgba(120,222,239,.13),0 0 0 17px rgba(120,222,239,.08); animation: value-pulse 2s ease-in-out infinite; }
+.value-efficiency .value-visual i { width: 18px; height: 1px; background: #78deef; transform: rotate(-42deg); }
+.value-cost .value-visual { background: #0b69ad; }
+.value-cost .value-visual:before { width: 24px; height: 24px; border: 1px solid #b9edf5; transform: rotate(45deg); }
+.value-cost .value-visual:after { width: 30px; height: 1px; background: #b9edf5; box-shadow: 0 -9px 0 rgba(185,237,245,.65),0 9px 0 rgba(185,237,245,.65); }
+.value-cost .value-visual i { width: 5px; height: 5px; border-radius: 50%; background: #fff; }
+.value-quality .value-visual { background: #12618d; }
+.value-quality .value-visual:before { width: 32px; height: 32px; border: 1px solid #c9f1f5; border-radius: 50%; }
+.value-quality .value-visual:after { width: 18px; height: 18px; border: 1px solid #79dce9; border-radius: 50%; }
+.value-quality .value-visual i { width: 5px; height: 5px; border-radius: 50%; background: #f4b16b; box-shadow: 0 0 0 5px rgba(244,177,107,.16); animation: value-pulse 2.2s ease-in-out infinite -.6s; }
+@keyframes value-pulse { 50% { transform: scale(1.18); opacity:.72; } }
 
 /* Company proof leads with the headquarters image, then stacks the message alongside it. */
 .company-intro > .section-shell {
@@ -137,6 +155,15 @@
 }
 
 @media (max-width: 900px) {
+  .clinical-value {
+    grid-template-columns: 1fr;
+    gap: 38px !important;
+  }
+
+  .clinical-value-copy {
+    max-width: 600px;
+  }
+
   .company-intro > .section-shell,
   .china-coverage {
     grid-template-columns: 1fr !important;
@@ -186,7 +213,7 @@
   .value-grid article,
   .value-grid article:nth-child(2),
   .value-grid article:nth-child(3) {
-    min-height: auto !important;
+    min-height: 116px !important;
   }
 
   .demo-section {
