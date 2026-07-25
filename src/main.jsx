@@ -5,6 +5,7 @@ import './coverage.css'
 import './coverage-switch.css'
 import './coverage-refine.css'
 import './pathology-viewer.css'
+import './pathology-drag.css'
 import './coverage-svg.css'
 import './ecosystem-loop.css'
 import './ecosystem-layout.css'
@@ -146,19 +147,40 @@ function PathologyViewer() {
   const [mode, setMode] = useState('heatmap')
   const [split, setSplit] = useState(52)
   const [dragging, setDragging] = useState(false)
+  const canvasRef = useRef(null)
+  const draggingRef = useRef(false)
   const updateSplit = (event) => {
-    if (!dragging && event.type === 'pointermove') return
-    const bounds = event.currentTarget.getBoundingClientRect()
+    const bounds = canvasRef.current?.getBoundingClientRect()
+    if (!bounds) return
     setSplit(Math.max(8, Math.min(92, ((event.clientX - bounds.left) / bounds.width) * 100)))
+  }
+  const startDrag = (event) => {
+    event.preventDefault()
+    draggingRef.current = true
+    setDragging(true)
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+  const drag = (event) => {
+    if (draggingRef.current) updateSplit(event)
+  }
+  const endDrag = (event) => {
+    draggingRef.current = false
+    setDragging(false)
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId)
+  }
+  const moveWithKeyboard = (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+    event.preventDefault()
+    setSplit((current) => Math.max(8, Math.min(92, current + (event.key === 'ArrowRight' ? 4 : -4))))
   }
   const overlay = mode === 'heatmap' ? 'images/panopath-slide-heatmap-v2.png' : 'images/panopath-slide-lesion-v2.png'
   const label = mode === 'heatmap' ? 'AI heatmap' : 'Lesion distribution'
   return <div className="pathology-viewer">
     <div className="viewer-toolbar"><span><i></i>AI-assisted review</span><div><button className={mode === 'heatmap' ? 'active' : ''} onClick={() => setMode('heatmap')}>Heatmap</button><button className={mode === 'lesion' ? 'active' : ''} onClick={() => setMode('lesion')}>Lesion map</button></div></div>
-    <div className="viewer-canvas" onPointerDown={(event) => { setDragging(true); event.currentTarget.setPointerCapture(event.pointerId); updateSplit(event) }} onPointerMove={updateSplit} onPointerUp={() => setDragging(false)} onPointerLeave={() => setDragging(false)}>
+    <div className="viewer-canvas" ref={canvasRef}>
       <img src={assetUrl('images/panopath-slide-original-v2.png')} alt="Original pathology slide" />
-      <div className="viewer-overlay" style={{ clipPath: `inset(0 0 0 ${split}%)` }}><img src={assetUrl(overlay)} alt={`${label} result`} /></div>
-      <div className="viewer-divider" style={{ left: `${split}%` }}><span>↔</span></div>
+      <div className="viewer-overlay" style={{ clipPath: 'inset(0 0 0 ' + split + '%)' }}><img src={assetUrl(overlay)} alt={label + ' result'} /></div>
+      <div className={'viewer-divider ' + (dragging ? 'is-dragging' : '')} style={{ left: split + '%' }} role="slider" tabIndex="0" aria-label="Drag to compare original slide and AI result" aria-valuemin="8" aria-valuemax="92" aria-valuenow={Math.round(split)} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={moveWithKeyboard}><span>↔</span></div>
       <span className="viewer-state original">Original slide</span><span className="viewer-state result">{label}</span>
     </div>
     <label className="viewer-slider"><span>Slide to compare</span><input type="range" min="8" max="92" value={split} onChange={(event) => setSplit(Number(event.target.value))} aria-label="Compare original slide and AI result" /></label>
