@@ -3,9 +3,24 @@
 }
 
 .viewer-divider {
+  width: 52px;
+  transform: translateX(-50%);
+  background: transparent;
+  box-shadow: none;
   pointer-events: auto;
   cursor: ew-resize;
   touch-action: none;
+}
+
+.viewer-divider::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  content: '';
 }
 
 .viewer-divider:focus-visible {
@@ -15,13 +30,17 @@
 
 .viewer-divider.is-dragging {
   background: #65ddf2;
+}
+
+.viewer-divider.is-dragging::before {
+  background: #65ddf2;
   box-shadow: 0 0 0 4px rgba(101, 221, 242, 0.22), 0 0 16px rgba(255, 255, 255, 0.9);
 }
 
 .viewer-divider span {
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 21px;
   pointer-events: none;
   transition: transform 150ms ease, background 150ms ease;
 }
