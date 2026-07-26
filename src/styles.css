@@ -43,9 +43,9 @@
   transition: background 260ms ease, box-shadow 260ms ease;
 }
 
-.stats article:nth-child(2) { background: linear-gradient(145deg, #f9fdff 0%, #e8f6fb 100%); }
-.stats article:nth-child(3) { background: linear-gradient(145deg, #ffffff 0%, #edf8fb 100%); }
-.stats article:nth-child(4) { background: linear-gradient(145deg, #f9fdff 0%, #e4f5fa 100%); }
+.stats article:nth-child(2),
+.stats article:nth-child(3),
+.stats article:nth-child(4) { background: linear-gradient(145deg, #ffffff 0%, #edf9fc 100%); }
 .stats article:last-child { border-right: 0; }
 
 .stats article::before {
@@ -59,10 +59,10 @@
   letter-spacing: 0.12em;
 }
 
-.stats article:nth-child(1)::before { content: '01 / DATA'; }
-.stats article:nth-child(2)::before { content: '02 / MODELS'; }
-.stats article:nth-child(3)::before { content: '03 / COVERAGE'; }
-.stats article:nth-child(4)::before { content: '04 / NETWORK'; }
+.stats article:nth-child(1)::before { content: 'DATA'; }
+.stats article:nth-child(2)::before { content: 'MODELS'; }
+.stats article:nth-child(3)::before { content: 'COVERAGE'; }
+.stats article:nth-child(4)::before { content: 'NETWORK'; }
 
 .stats article::after {
   position: absolute;
