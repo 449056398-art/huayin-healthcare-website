@@ -29,7 +29,7 @@
 }
 
 .viewer-divider.is-dragging {
-  background: #65ddf2;
+  background: transparent;
 }
 
 .viewer-divider.is-dragging::before {
