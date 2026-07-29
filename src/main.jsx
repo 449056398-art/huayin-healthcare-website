@@ -16,7 +16,7 @@ import './narrative-layout.css'
 
 const navItems = [
   { label: 'Company', items: ['About Us', 'Mission & Vision', 'Leadership Team', 'Global Presence', 'Partners & Clients', 'Careers'] },
-  { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI-Powered Diagnostics', 'Breast Pathology', 'Prostate Pathology', 'Cervical Pathology', 'Gastric Pathology', 'Lung Pathology', 'Digital Pathology Workflow', 'Biomarker Analysis', 'Clinical Validation & Regulatory'] },
+  { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI-Powered Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis', 'Clinical Validation & Regulatory'] },
   { label: 'Products & Platform', items: ['PanoPath AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology Service', 'Lab Information System (LIS)', 'Hardware Infrastructure', 'API & System Integration'] },
   { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions', 'Telepathology'] },
   { label: 'Resources', items: ['Case Studies', 'Whitepapers & Publications', 'Clinical Evidence', 'Blog & News', 'Webinars & Videos'] },
