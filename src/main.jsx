@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
+import './navigation-menu.css'
 import './coverage.css'
 import './coverage-switch.css'
 import './coverage-refine.css'
@@ -14,11 +15,13 @@ import './ecosystem-refine.css'
 import './narrative-layout.css'
 
 const navItems = [
-  { label: 'Company', items: ['About Huayin', 'Mission & Vision', 'Leadership', 'China Coverage'] },
-  { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis'] },
-  { label: 'Products & Platform', items: ['AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology', 'LIS & Integration'] },
-  { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions'] },
-  { label: 'Resources', items: ['Clinical Evidence', 'Case Studies', 'News & Insights'] },
+  { label: 'Company', items: ['About Us', 'Mission & Vision', 'Leadership Team', 'Global Presence', 'Partners & Clients', 'Careers'] },
+  { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI-Powered Diagnostics', 'Breast Pathology', 'Prostate Pathology', 'Cervical Pathology', 'Gastric Pathology', 'Lung Pathology', 'Digital Pathology Workflow', 'Biomarker Analysis', 'Clinical Validation & Regulatory'] },
+  { label: 'Products & Platform', items: ['PanoPath AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology Service', 'Lab Information System (LIS)', 'Hardware Infrastructure', 'API & System Integration'] },
+  { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions', 'Telepathology'] },
+  { label: 'Resources', items: ['Case Studies', 'Whitepapers & Publications', 'Clinical Evidence', 'Blog & News', 'Webinars & Videos'] },
+  { label: 'Request a Demo', items: ['Demo Request Form', 'Schedule Consultation', 'Pricing Inquiry'] },
+  { label: 'Contact', items: ['Global Offices', 'Partnership Inquiries', 'Technical Support'] },
 ]
 
 const stats = [
@@ -73,9 +76,9 @@ function Header() {
       <Logo />
       <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <nav className={open ? 'main-nav open' : 'main-nav'}>
-        {navItems.map(({ label, items }) => <div className="nav-item" key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={() => setMenu(null)}>
+        {navItems.map(({ label, items }) => <div className={'nav-item ' + (label === 'Request a Demo' ? 'nav-request' : '')} key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={() => setMenu(null)}>
           <button onClick={() => setMenu(menu === label ? null : label)}>{label}<span className="chevron">⌄</span></button>
-          {menu === label && <div className="dropdown">{items.map(item => <a href="#solutions" key={item}>{item}</a>)}</div>}
+          {menu === label && <div className="dropdown">{items.map(item => <a href={label === 'Request a Demo' ? '#demo' : '#top'} key={item}>{item}</a>)}</div>}
         </div>)}
         <a className="contact-link" href="#contact">Contact</a>
         <a className="language" href="#top">EN <span>/</span> 中</a>
