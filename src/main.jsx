@@ -10,6 +10,7 @@ import './pathology-viewer.css'
 import './pathology-drag.css'
 import './coverage-svg.css'
 import './ecosystem-loop.css'
+import './ecosystem-icons.css'
 import './ecosystem-layout.css'
 import './company-headquarters.css'
 import './ecosystem-refine.css'
@@ -189,6 +190,15 @@ function PathologyViewer() {
     </div>
     <label className="viewer-slider"><span>Slide to compare</span><input type="range" min="8" max="92" value={split} onChange={(event) => setSplit(Number(event.target.value))} aria-label="Compare original slide and AI result" /></label>
   </div>
+}
+
+function LoopNodeIcon({ type }) {
+  const drawings = {
+    slide: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 15h5M16 14h1"/></>,
+    chip: <><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M9 2v5M15 2v5M9 17v5M15 17v5M2 9h5M2 15h5M17 9h5M17 15h5M10 10h4v4h-4z"/></>,
+    record: <><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4M9 11h6M9 15h6M9 19h4"/></>,
+  }
+  return <span className={'node-icon node-icon-' + type}><svg viewBox="0 0 24 24" aria-hidden="true">{drawings[type]}</svg></span>
 }
 
 function EcosystemLoop() {
