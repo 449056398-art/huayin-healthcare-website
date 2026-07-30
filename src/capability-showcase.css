@@ -1,0 +1,160 @@
+.capability-section {
+  background: linear-gradient(180deg, #f4f9fc 0%, #edf7fb 100%);
+}
+
+.capability-grid {
+  gap: 18px;
+}
+
+.capability-card {
+  display: flex;
+  min-height: 390px;
+  padding: 0;
+  align-items: flex-end;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  background: #073d77;
+  color: #fff;
+  isolation: isolate;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(17, 62, 101, 0.12);
+}
+
+.capability-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(7, 52, 106, 0.34) 0%, rgba(9, 129, 166, 0.45) 55%, rgba(4, 43, 93, 0.7) 100%);
+  content: '';
+  transition: background 360ms ease;
+}
+
+.capability-card::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 25, 67, 0.06) 10%, rgba(2, 26, 70, 0.9) 100%);
+  content: '';
+  transition: opacity 360ms ease;
+}
+
+.capability-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.04);
+  transition: transform 600ms cubic-bezier(.2, .7, .2, 1), filter 360ms ease;
+}
+
+.capability-foundation .capability-image {
+  object-position: 64% 52%;
+}
+
+.capability-disease-ai .capability-image {
+  object-position: 50% 50%;
+}
+
+.capability-card-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 34px 30px 30px;
+}
+
+.capability-card h3 {
+  margin: 0;
+  max-width: 280px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-shadow: 0 2px 16px rgba(0, 22, 60, 0.36);
+  transition: transform 360ms ease;
+}
+
+.capability-card p,
+.capability-card a {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: max-height 360ms ease, margin 360ms ease, opacity 260ms ease, transform 360ms ease;
+}
+
+.capability-card p {
+  max-width: 290px;
+  color: #d9f3fb;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.capability-card a {
+  align-items: center;
+  gap: 8px;
+  color: #78dcf2;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.capability-card:hover,
+.capability-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px rgba(8, 54, 95, 0.22);
+}
+
+.capability-card:hover::before,
+.capability-card:focus-within::before {
+  background: linear-gradient(160deg, rgba(3, 30, 75, 0.78) 0%, rgba(4, 70, 113, 0.86) 60%, rgba(3, 32, 79, 0.94) 100%);
+}
+
+.capability-card:hover::after,
+.capability-card:focus-within::after {
+  opacity: 0.4;
+}
+
+.capability-card:hover .capability-image,
+.capability-card:focus-within .capability-image {
+  transform: scale(1.08);
+  filter: saturate(1.03) contrast(1.08);
+}
+
+.capability-card:hover h3,
+.capability-card:focus-within h3 {
+  transform: translateY(-3px);
+}
+
+.capability-card:hover p,
+.capability-card:focus-within p {
+  max-height: 120px;
+  margin-top: 15px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.capability-card:hover a,
+.capability-card:focus-within a {
+  display: inline-flex;
+  max-height: 35px;
+  margin-top: 18px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+  .capability-card {
+    min-height: 290px;
+  }
+
+  .capability-card-content {
+    padding: 25px 23px;
+  }
+
+  .capability-card h3 {
+    font-size: 21px;
+  }
+}

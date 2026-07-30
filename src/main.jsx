@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
 import './navigation-menu.css'
+import './capability-showcase.css'
 import './coverage.css'
 import './coverage-switch.css'
 import './coverage-refine.css'
@@ -32,9 +33,9 @@ const stats = [
 ]
 
 const capabilities = [
-  ['Real-world data intelligence', 'PanoPath learns from more than 10 million real-world whole-slide images collected through clinical practice.'],
-  ['Foundation model capabilities', 'A pathology foundation model that delivers leading performance in multi-task evaluation.'],
-  ['Disease-specific AI', 'More than 40 disease-specific AI models support over 99% of routine diagnostic scenarios.'],
+  { title: 'Real-world data intelligence', copy: 'PanoPath learns from more than 10 million real-world whole-slide images collected through clinical practice.', image: 'images/capability-real-world.jpg', key: 'real-world' },
+  { title: 'Foundation model capabilities', copy: 'A pathology foundation model that delivers leading performance in multi-task evaluation.', image: 'images/capability-foundation-chip.png', key: 'foundation' },
+  { title: 'Disease-specific AI', copy: 'More than 40 disease-specific AI models support over 99% of routine diagnostic scenarios.', image: 'images/capability-disease-ai.jpg', key: 'disease-ai' },
 ]
 
 const coverageMarkers = [
@@ -234,7 +235,7 @@ function App() {
 
       <section className="intro section-shell" id="platform"><div><p className="eyebrow blue">THE INTELLIGENCE BEHIND SMARTER PATHOLOGY</p><h2>From every case,<br/>a better next case.</h2></div><p>As a pioneer in telepathology, Huayin has built a real-world pathology data foundation that brings big data, algorithms and clinical scenarios into one continuously improving ecosystem.</p></section>
 
-      <section className="capability-section"><div className="section-shell"><div className="section-heading"><p className="eyebrow blue">WHAT WE ENABLE</p><h2>Built for the next era<br/>of pathology.</h2><a className="text-button" href="#solutions">Discover our capabilities <span>→</span></a></div><div className="capability-grid">{capabilities.map(([title, copy], i) => <article className="capability-card" key={title}><span className={'card-number n' + i}>0{i + 1}</span><div className="card-icon">{i === 0 ? '✦' : i === 1 ? '◫' : '◌'}</div><h3>{title}</h3><p>{copy}</p><a href="#demo" aria-label={`Learn about ${title}`}>Learn more <span>→</span></a></article>)}</div></div></section>
+      <section className="capability-section"><div className="section-shell"><div className="section-heading"><p className="eyebrow blue">WHAT WE ENABLE</p><h2>Built for the next era<br/>of pathology.</h2><a className="text-button" href="#solutions">Discover our capabilities <span>→</span></a></div><div className="capability-grid">{capabilities.map(({ title, copy, image, key }) => <article className={'capability-card capability-' + key} key={title}><img className="capability-image" src={assetUrl(image)} alt="" /><div className="capability-card-content"><h3>{title}</h3><p>{copy}</p><a href="#demo" aria-label={'Learn about ' + title}>Learn more <span>→</span></a></div></article>)}</div></div></section>
 
       <section className="workflow section-shell"><div className="workflow-visual"><div className="workflow-circle"><span>DATA</span><span>LEARN</span><span>ASSIST</span><b>AI</b></div></div><div className="workflow-copy"><p className="eyebrow blue">THE PanoPath PLATFORM</p><h2>PanoPath: a foundation model for pathology.</h2><p>Trained on Huayin's large real-world WSI database, PanoPath achieves leading performance in multi-task evaluation and turns accumulated clinical intelligence into practical diagnostic assistance.</p><ul><li>10M+ real-world whole-slide images</li><li>40+ disease-specific AI models</li><li>Clinical intelligence designed for daily practice</li></ul><a className="text-button" href="#demo">Explore PanoPath <span>→</span></a></div></section>
 
