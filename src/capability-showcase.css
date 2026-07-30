@@ -59,10 +59,13 @@
 }
 
 .capability-card-content {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  top: 52%;
+  right: 0;
+  left: 0;
   width: 100%;
-  padding: 34px 30px 30px;
+  padding: 0 30px;
 }
 
 .capability-card h3 {
@@ -151,7 +154,8 @@
   }
 
   .capability-card-content {
-    padding: 25px 23px;
+    top: 46%;
+    padding: 0 23px;
   }
 
   .capability-card h3 {
