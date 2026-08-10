@@ -1,3 +1,16 @@
+.nav-wrap {
+  width: min(1180px, calc(100% - 64px));
+}
+
+.brand-header img {
+  width: 168px;
+}
+
+.footer-grid .brand-footer,
+.footer-grid .brand-footer img {
+  width: 176px;
+}
+
 .main-nav {
   gap: 18px;
 }
@@ -36,6 +49,19 @@
 }
 
 @media (max-width: 800px) {
+  .nav-wrap {
+    width: min(100% - 40px, 1180px);
+  }
+
+  .brand-header img {
+    width: 144px;
+  }
+
+  .footer-grid .brand-footer,
+  .footer-grid .brand-footer img {
+    width: 164px;
+  }
+
   .nav-item:last-of-type .dropdown {
     right: auto;
   }
