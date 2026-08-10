@@ -17,13 +17,30 @@ import './ecosystem-refine.css'
 import './narrative-layout.css'
 
 const navItems = [
-  { label: 'Company', items: ['About Us', 'Mission & Vision', 'Leadership Team', 'Global Presence', 'Partners & Clients', 'Careers'] },
-  { label: 'AI Solutions', items: ['PanoPath AI Platform', 'AI-Powered Diagnostics', 'Digital Pathology Workflow', 'Biomarker Analysis', 'Clinical Validation & Regulatory'] },
-  { label: 'Products & Platform', items: ['PanoPath AI Diagnostic Platform', 'Digital Slide Scanner', 'Cloud Pathology Service', 'Lab Information System (LIS)', 'Hardware Infrastructure', 'API & System Integration'] },
-  { label: 'Solutions', items: ['Hospitals & Health Systems', 'Reference Labs', 'Pharma & Biotech', 'Research Institutions', 'Telepathology'] },
-  { label: 'Resources', items: ['Case Studies', 'Whitepapers & Publications', 'Clinical Evidence', 'Blog & News', 'Webinars & Videos'] },
-  { label: 'Request a Demo', items: ['Demo Request Form', 'Schedule Consultation', 'Pricing Inquiry'] },
-  { label: 'Contact', items: ['Global Offices', 'Partnership Inquiries', 'Technical Support'] },
+  { label: 'Company', items: [
+    { label: 'About Us', href: '#company' },
+    { label: 'Leadership Team', href: '#company' },
+    { label: 'Global Presence', href: '#coverage' },
+  ] },
+  { label: 'AI Solutions', items: [
+    { label: 'PanoPath Platform', href: '#platform' },
+    { label: 'AI Diagnostics', href: '#solutions' },
+    { label: 'Full-Stack Ecosystem', href: '#solutions' },
+    { label: 'Clinical & Regulatory', href: '#solutions' },
+  ] },
+  { label: 'Who We Serve', items: [
+    { label: 'Hospitals', href: '#solutions' },
+    { label: 'Reference Labs', href: '#solutions' },
+    { label: 'Pharma & Biotech', href: '#solutions' },
+  ] },
+  { label: 'Resources', items: [
+    { label: 'Blog & News', href: '#resources' },
+    { label: 'Clinical Evidence', href: '#resources' },
+  ] },
+  { label: 'Contact', items: [
+    { label: 'Global Offices', href: '#contact' },
+    { label: 'Partnership', href: '#contact' },
+  ] },
 ]
 
 const stats = [
@@ -73,18 +90,28 @@ function Logo({ variant = 'header' }) {
 function Header() {
   const [open, setOpen] = useState(false)
   const [menu, setMenu] = useState(null)
+  const closeNavigation = () => {
+    setOpen(false)
+    setMenu(null)
+  }
+  const closeMenuOnPointerLeave = () => {
+    if (window.matchMedia('(hover: hover)').matches) setMenu(null)
+  }
+  const toggleMenu = (label) => {
+    const canHover = window.matchMedia('(hover: hover)').matches
+    setMenu((current) => canHover ? label : (current === label ? null : label))
+  }
   return <header className="site-header">
     <div className="nav-wrap">
       <Logo />
-      <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}><span></span><span></span><span></span></button>
       <nav className={open ? 'main-nav open' : 'main-nav'}>
-        {navItems.map(({ label, items }) => <div className={'nav-item ' + (label === 'Request a Demo' ? 'nav-request' : '')} key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={() => setMenu(null)}>
-          <button onClick={() => setMenu(menu === label ? null : label)}>{label}<span className="chevron">⌄</span></button>
-          {menu === label && <div className="dropdown">{items.map(item => <a href={label === 'Request a Demo' ? '#demo' : '#top'} key={item}>{item}</a>)}</div>}
+        {navItems.map(({ label, items }) => <div className="nav-item" key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={closeMenuOnPointerLeave}>
+          <button onClick={() => toggleMenu(label)} aria-expanded={menu === label}>{label}<span className="chevron">⌄</span></button>
+          {menu === label && <div className="dropdown">{items.map(item => <a href={item.href} onClick={closeNavigation} key={item.label}>{item.label}</a>)}</div>}
         </div>)}
-        <a className="contact-link" href="#contact">Contact</a>
         <a className="language" href="#top">EN <span>/</span> 中</a>
-        <a className="demo-button nav-demo" href="#demo">Request a demo <span>→</span></a>
+        <a className="demo-button nav-demo" href="#demo" onClick={closeNavigation}>Request a demo <span>→</span></a>
       </nav>
     </div>
   </header>
@@ -251,7 +278,7 @@ function App() {
 
       <section className="closed-loop"><div className="section-shell"><div className="closed-loop-heading"><p className="eyebrow">A SELF-REINFORCING ECOSYSTEM</p><h2>Intelligence that keeps<br/>moving forward.</h2><p>Real-world clinical practice makes the ecosystem smarter with every cycle.</p></div><div className="loop-steps"><article><span>01</span><h3>Big data</h3><p>Millions of whole-slide images from real clinical practice.</p></article><i>→</i><article><span>02</span><h3>Algorithms</h3><p>PanoPath and disease-specific AI models learn from data.</p></article><i>→</i><article><span>03</span><h3>Clinical scenarios</h3><p>AI supports everyday pathology decisions and workflows.</p></article><i>→</i><article><span>04</span><h3>Continuous iteration</h3><p>Clinical feedback strengthens the next generation of intelligence.</p></article></div></div></section>
 
-      <section className="clinical-value section-shell"><div className="clinical-value-copy"><p className="eyebrow blue">PROVEN IN REAL-WORLD PRACTICE</p><h2>More intelligence.<br/>More value in every diagnosis.</h2><p>As an intelligent pathology assistant, Huayin AI has been proven across millions of real-world cases to help healthcare teams work better.</p></div><div className="value-grid"><article className="value-efficiency"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>01 · CLINICAL FLOW</span><h3>Enhance efficiency</h3><p>Support pathologists with timely AI-assisted review and streamlined workflows.</p></div><b aria-hidden="true">↗</b></article><article className="value-cost"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>02 · OPERATIONS</span><h3>Reduce costs</h3><p>Help laboratories optimize operations through connected digital pathology.</p></div><b aria-hidden="true">↗</b></article><article className="value-quality"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>03 · DIAGNOSTIC QUALITY</span><h3>Improve quality</h3><p>Bring consistent intelligence to more diagnostic decisions, wherever patients are.</p></div><b aria-hidden="true">↗</b></article></div></section>
+      <section className="clinical-value section-shell" id="resources"><div className="clinical-value-copy"><p className="eyebrow blue">PROVEN IN REAL-WORLD PRACTICE</p><h2>More intelligence.<br/>More value in every diagnosis.</h2><p>As an intelligent pathology assistant, Huayin AI has been proven across millions of real-world cases to help healthcare teams work better.</p></div><div className="value-grid"><article className="value-efficiency"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>01 · CLINICAL FLOW</span><h3>Enhance efficiency</h3><p>Support pathologists with timely AI-assisted review and streamlined workflows.</p></div><b aria-hidden="true">↗</b></article><article className="value-cost"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>02 · OPERATIONS</span><h3>Reduce costs</h3><p>Help laboratories optimize operations through connected digital pathology.</p></div><b aria-hidden="true">↗</b></article><article className="value-quality"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>03 · DIAGNOSTIC QUALITY</span><h3>Improve quality</h3><p>Bring consistent intelligence to more diagnostic decisions, wherever patients are.</p></div><b aria-hidden="true">↗</b></article></div></section>
 
       <section className="solutions-section" id="solutions"><div className="section-shell"><div className="solutions-intro"><div><p className="eyebrow">SOLUTIONS DESIGNED AROUND YOU</p><h2>One connected ecosystem.<br/>Built for pathology.</h2></div><div className="solutions-summary"><p>AI <span>+</span> PIS <span>+</span> Hardware <span>+</span> Services</p><small>Four-in-one intelligent pathology solution</small></div></div><div className="solution-modules">{solutionModules.map((item, index) => <SolutionModule item={item} index={index} key={item.title} />)}</div></div></section>
 
