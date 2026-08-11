@@ -18,7 +18,7 @@ import './narrative-layout.css'
 
 const navItems = [
   { label: 'Company', items: [
-    { label: 'About Us', href: '#company' },
+    { label: 'About Us', href: '#/about-us' },
     { label: 'Leadership Team', href: '#company' },
     { label: 'Global Presence', href: '#coverage' },
   ] },
@@ -240,6 +240,18 @@ function EcosystemLoop() {
 }
 
 function App() {
+  const [page, setPage] = useState(() => window.location.hash === '#/about-us' ? 'about-us' : 'home')
+
+  useEffect(() => {
+    const updatePage = () => setPage(window.location.hash === '#/about-us' ? 'about-us' : 'home')
+    window.addEventListener('hashchange', updatePage)
+    return () => window.removeEventListener('hashchange', updatePage)
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [page])
+
   useEffect(() => {
     const mount = document.querySelector('.workflow-visual')
     if (!mount) return undefined
@@ -254,7 +266,7 @@ function App() {
     loopRoot.render(<EcosystemLoop />)
     return () => loopRoot.unmount()
   }, [])
-  return <div id="top">
+  return <div id="top" className={page === 'about-us' ? 'about-us-mode' : 'home-mode'}>
     <Header />
     <main>
       <section className="hero hero-video">
