@@ -77,12 +77,25 @@
   display: none;
 }
 
+.home-mode .closed-loop {
+  display: none;
+}
+
 .about-us-mode main {
   min-height: calc(100vh - 320px);
   padding-top: 74px;
 }
 
 .about-us-mode main > :not(.china-coverage) {
+  display: none !important;
+}
+
+.full-stack-ecosystem-mode main {
+  min-height: calc(100vh - 320px);
+  padding-top: 74px;
+}
+
+.full-stack-ecosystem-mode main > :not(.closed-loop) {
   display: none !important;
 }
 

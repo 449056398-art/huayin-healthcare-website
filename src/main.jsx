@@ -25,7 +25,7 @@ const navItems = [
   { label: 'AI Solutions', items: [
     { label: 'PanoPath Platform', href: '#platform' },
     { label: 'AI Diagnostics', href: '#solutions' },
-    { label: 'Full-Stack Ecosystem', href: '#solutions' },
+    { label: 'Full-Stack Ecosystem', href: '#/full-stack-ecosystem' },
     { label: 'Clinical & Regulatory', href: '#solutions' },
   ] },
   { label: 'Who We Serve', items: [
@@ -239,11 +239,17 @@ function EcosystemLoop() {
   </div>
 }
 
+const resolvePage = () => {
+  if (window.location.hash === '#/about-us') return 'about-us'
+  if (window.location.hash === '#/full-stack-ecosystem') return 'full-stack-ecosystem'
+  return 'home'
+}
+
 function App() {
-  const [page, setPage] = useState(() => window.location.hash === '#/about-us' ? 'about-us' : 'home')
+  const [page, setPage] = useState(resolvePage)
 
   useEffect(() => {
-    const updatePage = () => setPage(window.location.hash === '#/about-us' ? 'about-us' : 'home')
+    const updatePage = () => setPage(resolvePage())
     window.addEventListener('hashchange', updatePage)
     return () => window.removeEventListener('hashchange', updatePage)
   }, [])
@@ -266,7 +272,7 @@ function App() {
     loopRoot.render(<EcosystemLoop />)
     return () => loopRoot.unmount()
   }, [])
-  return <div id="top" className={page === 'about-us' ? 'about-us-mode' : 'home-mode'}>
+  return <div id="top" className={`${page}-mode`}>
     <Header />
     <main>
       <section className="hero hero-video">
