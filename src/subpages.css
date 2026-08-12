@@ -91,12 +91,19 @@
 .subpage-grid h2 { margin: 44px 0 14px; color: #0a326c; font-size: 22px; line-height: 1.25; letter-spacing: 0; }
 .subpage-grid p { margin: 0; color: #60718a; font-size: 13px; line-height: 1.75; }
 
-.subpage-proof { padding: 92px 0; background: #062d69; color: #fff; }
+.subpage-proof {
+  padding: 92px 0;
+  background: #eef5f9;
+  border-top: 1px solid #d6e4ec;
+  border-bottom: 1px solid #d6e4ec;
+  color: #0a326c;
+}
 .subpage-proof .section-shell { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; }
-.subpage-proof h2 { margin: 0; font-size: 38px; letter-spacing: 0; }
+.subpage-proof .eyebrow { color: #0878c8; }
+.subpage-proof h2 { margin: 0; color: #0a326c; font-size: 38px; letter-spacing: 0; }
 .subpage-proof ul { margin: 0; padding: 0; list-style: none; }
-.subpage-proof li { padding: 15px 0 15px 28px; border-bottom: 1px solid rgba(255,255,255,.16); color: #c4d5e8; font-size: 14px; line-height: 1.6; position: relative; }
-.subpage-proof li::before { content: '✓'; position: absolute; left: 0; color: #71d7ec; }
+.subpage-proof li { padding: 15px 0 15px 28px; border-bottom: 1px solid #d3e1e9; color: #435f78; font-size: 14px; line-height: 1.6; position: relative; }
+.subpage-proof li::before { content: '✓'; position: absolute; left: 0; color: #1689c6; }
 
 .subpage-cta { padding: 78px 0; }
 .subpage-cta .section-shell { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
