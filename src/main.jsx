@@ -15,31 +15,32 @@ import './ecosystem-layout.css'
 import './company-headquarters.css'
 import './ecosystem-refine.css'
 import './narrative-layout.css'
+import './subpages.css'
 
 const navItems = [
   { label: 'Company', items: [
     { label: 'About Us', href: '#/about-us' },
-    { label: 'Leadership Team', href: '#company' },
-    { label: 'Global Presence', href: '#coverage' },
+    { label: 'Leadership Team', href: '#/leadership-team' },
+    { label: 'Global Presence', href: '#/global-presence' },
   ] },
   { label: 'AI Solutions', items: [
-    { label: 'PanoPath Platform', href: '#platform' },
-    { label: 'AI Diagnostics', href: '#solutions' },
+    { label: 'PanoPath Platform', href: '#/panopath-platform' },
+    { label: 'AI Diagnostics', href: '#/ai-diagnostics' },
     { label: 'Full-Stack Ecosystem', href: '#/full-stack-ecosystem' },
-    { label: 'Clinical & Regulatory', href: '#solutions' },
+    { label: 'Clinical & Regulatory', href: '#/clinical-regulatory' },
   ] },
   { label: 'Who We Serve', items: [
-    { label: 'Hospitals', href: '#solutions' },
-    { label: 'Reference Labs', href: '#solutions' },
-    { label: 'Pharma & Biotech', href: '#solutions' },
+    { label: 'Hospitals', href: '#/hospitals' },
+    { label: 'Reference Labs', href: '#/reference-labs' },
+    { label: 'Pharma & Biotech', href: '#/pharma-biotech' },
   ] },
   { label: 'Resources', items: [
-    { label: 'Blog & News', href: '#resources' },
-    { label: 'Clinical Evidence', href: '#resources' },
+    { label: 'Blog & News', href: '#/blog-news' },
+    { label: 'Clinical Evidence', href: '#/clinical-evidence' },
   ] },
   { label: 'Contact', items: [
-    { label: 'Global Offices', href: '#contact' },
-    { label: 'Partnership', href: '#contact' },
+    { label: 'Global Offices', href: '#/global-offices' },
+    { label: 'Partnerships', href: '#/partnerships' },
   ] },
 ]
 
@@ -47,7 +48,7 @@ const stats = [
   { value: 10, suffix: 'M+', label: 'Real-world whole-slide images' },
   { value: 40, suffix: '+', label: 'Disease-specific AI models' },
   { value: 99, suffix: '%', label: 'Routine diagnostic scenarios covered' },
-  { value: 2400, suffix: '+', label: 'Healthcare institutions served' },
+  { value: 2400, suffix: '+', label: 'AI-enabled pathology institutions' },
 ]
 
 const capabilities = [
@@ -80,11 +81,185 @@ const solutionModules = [
   { icon: 'appliance', title: 'AI Pathology Appliance', detail: 'Integrated computing infrastructure for flexible deployment.' },
 ]
 
+const subpages = {
+  'about-us': {
+    eyebrow: 'ABOUT HUAYIN',
+    title: 'Pathology-first diagnostics, built at scale.',
+    summary: 'A specialist reference laboratory and AI diagnostics company serving more than 12,800 institutional partners nationwide across laboratory testing, pathology, and related healthcare services.',
+    intro: 'Huayin Healthcare Group is a pathology-led independent medical laboratory and diagnostics company headquartered in Guangzhou, China. Since 2012, we have built our service network around one clinical question: how do we give every patient access to the same quality of pathological diagnosis, regardless of where they live? Today, our 22 provincial reference laboratories deliver anatomical pathology, clinical laboratory testing, remote pathology consultation, molecular diagnostics, clinical research support, and public-health screening.',
+    stats: [['2012', 'Founded'], ['22', 'Provincial laboratories'], ['29', 'Provinces served'], ['12,800+', 'Institutional partners nationwide']],
+    sections: [
+      ['Pathology-led since 2012', 'Huayin is pathology-centric, not a general laboratory that added AI as an afterthought.'],
+      ['Clinical and academic depth', 'The jointly established Southern Medical University – Huayin Pathology Diagnosis Center connects specialist expertise with daily diagnostic practice.'],
+      ['AI grounded in practice', 'PanoPath combines foundation-model AI, the Pathology Information System, digital slide scanners, and field service in one closed clinical workflow.'],
+    ],
+    bullets: ['ISO 15189 accreditation and CAP recognition at multiple sites.', 'Active across 29 provinces with more than 12,800 institutional partners nationwide.', 'PanoPath makes the same diagnostic intelligence used in Huayin laboratories available to hospital pathology departments.'],
+    cta: 'Talk to a Huayin representative',
+  },
+  'leadership-team': {
+    eyebrow: 'CLINICAL LEADERSHIP',
+    title: 'Pathologists lead. Engineers support.',
+    summary: 'Our clinical leadership sets the standard; our engineering and AI teams follow.',
+    intro: 'Huayin is a clinically led organisation. Our pathology and laboratory expert groups shape diagnostic protocols, labelling standards, and product requirements, while the AI Innovation Center translates those clinical priorities into practical tools.',
+    stats: [['240', 'Pathologists'], ['14', 'Subspecialties'], ['30', 'Core AI specialists'], ['10+', 'University partners']],
+    sections: [
+      ['Pathology Expert Group', 'Chaired by Professor Ding Yanqing of Southern Medical University, the group guides anatomical pathology standards and clinical priorities.'],
+      ['Laboratory Expert Group', 'Chaired by Professor Qiu Yurong, former Director of Laboratory Medicine at Nanfang Hospital, the group supports laboratory quality and diagnostic protocols.'],
+      ['AI Innovation Center', 'A core team of 30 technical specialists works with Professor Gao Huang\'s research group at Tsinghua University and the Pazhou Lab Center for AI-Powered Computational Pathology.'],
+    ],
+    bullets: ['Clinical requirements lead every product decision.', 'Research collaboration with Tsinghua University and Pazhou Lab.', 'Strategic partnerships with more than 10 universities, including the University of Pennsylvania.'],
+    cta: 'Contact our team',
+  },
+  'panopath-platform': {
+    eyebrow: 'PANOPATH AI',
+    title: 'A foundation model for pathology, not a collection of point solutions.',
+    summary: 'One model handles detection, segmentation, classification, prognosis, and multi-omics prediction across solid tumours and cytology.',
+    intro: 'PanoPath is a single-stage, end-to-end foundation model for whole-slide imaging, jointly developed by Huayin Healthcare and the research group of Professor Gao Huang at Tsinghua University. It is trained on more than 3 million whole-slide images from multi-centre cohorts spanning China, North America, and Europe.',
+    stats: [['3M+', 'WSIs in training corpus'], ['100+', 'Cancer types detected'], ['10M+', 'WSIs in production database'], ['5M+', 'AI-assisted diagnostic WSIs']],
+    sections: [
+      ['One foundation', 'A unified architecture uses local and global attention with efficient long-sequence operators for whole-slide analysis.'],
+      ['Multiple clinical tasks', 'Supports pan-cancer detection, lesion-level segmentation, prognosis prediction, gene-mutation prediction, tumour-origin prediction, and spatial transcriptomics interpretation.'],
+      ['Multimodal learning', 'Training spans H&E, immunohistochemistry, and molecular data to support connected diagnostic reasoning.'],
+    ],
+    bullets: ['Single-stage, end-to-end architecture.', 'Multi-centre training data from China, North America, and Europe.', 'Built to extend to new disease subtypes without rebuilding every model from scratch.'],
+    visual: 'viewer',
+    cta: 'Request a PanoPath demo',
+  },
+  'ai-diagnostics': {
+    eyebrow: 'DIAGNOSTIC AI',
+    title: '40+ disease-specific diagnostic models, validated on clinical-grade WSIs.',
+    summary: 'Histopathology, cytopathology, immunohistochemistry quantification, and slide quality control, all from the same PanoPath foundation.',
+    intro: 'Huayin\'s disease-specific AI models cover more than 99% of daily diagnostic scenarios in tertiary hospitals. Each model is trained on multi-centre data and evaluated against senior pathologist review.',
+    stats: [['40+', 'Disease-specific models'], ['31', 'Histopathology organ systems'], ['99%+', 'Routine scenarios covered'], ['18+', 'Slide defects flagged']],
+    sections: [
+      ['Histopathology', 'AI-assisted diagnosis across 31 organ systems, including stomach, colorectum, oesophagus, lung, breast, and prostate.'],
+      ['Cytopathology', 'Support for TCT, thyroid FNA, respiratory tract, urine, and pleural or peritoneal fluid workflows.'],
+      ['IHC quantification', 'Quantitative analysis for ER, PR, HER2, Ki-67, and PD-L1.'],
+      ['Slide quality control', 'H&E quality control flags more than 18 common pre-analytical defects before review.'],
+    ],
+    bullets: ['Clinical decision support with final sign-off retained by the pathologist.', 'Compatible with whole-slide images from major scanner platforms.', 'Full validation dossiers are available to qualified partners under NDA.'],
+    visual: 'viewer',
+    cta: 'See validation data',
+  },
+  'full-stack-ecosystem': {
+    eyebrow: 'ECOSYSTEM',
+    title: 'AI + PIS + Hardware + Services, deployed as one system.',
+    summary: 'We deliver the scanner, the information system, the AI, and field service together, so the diagnostic workflow actually closes.',
+    intro: 'Huayin\'s four-in-one ecosystem ships each component of the diagnostic loop: an automatic digital slide scanner, a full-workflow Pathology Information System, the PanoPath AI suite, and a field-service team for installation, training, calibration, and quality assurance. Customers can adopt the full ecosystem or integrate PanoPath into a scanner or laboratory system they already own.',
+    stats: [['4-in-1', 'Connected ecosystem'], ['6', 'Core solution modules'], ['3', 'Deployment models'], ['24/7', 'Remote workflow support']],
+    sections: [
+      ['Full ecosystem', 'Scanner, PIS, PanoPath AI, structured reporting, deployment hardware, and field service delivered together.'],
+      ['Integrate PanoPath', 'Connect PanoPath to an existing scanner or laboratory information system while preserving current workflows.'],
+      ['Per-case service', 'Use Huayin\'s remote pathology network for eligible diagnostic services where local regulation permits.'],
+    ],
+    bullets: ['Remote diagnosis, AI-assisted diagnosis, structured reporting, scanning, PIS, and AI appliance components.', 'Full workflow from request and grossing through scanning, AI, sign-out, and archive.', 'Installation, calibration, pathologist training, and quarterly quality assurance.'],
+    cta: 'Compare deployment options',
+  },
+  hospitals: {
+    eyebrow: 'FOR HOSPITALS',
+    title: 'Give your pathologists more time for the cases that matter.',
+    summary: 'PanoPath handles high-volume routine review while preserving senior-pathologist oversight for every final report.',
+    intro: 'Hospital pathology departments face the same pressure: more cases, fewer specialists, and rising expectations for molecular and IHC reporting. Huayin\'s ecosystem integrates with existing scanners and laboratory systems, then supports routine review, structured reporting, and quality assurance.',
+    stats: [['70%', 'Per-case efficiency gain'], ['95%+', 'Concordance with senior review'], ['2,400+', 'AI-enabled pathology institutions'], ['5M+', 'AI-assisted diagnostic WSIs']],
+    sections: [
+      ['Integrate', 'Connect to existing scanners and laboratory systems through standard interfaces and file ingestion.'],
+      ['Assist', 'AI pre-screening, suspicious-region highlighting, and structured report output support routine workflows.'],
+      ['Deploy', 'Choose on-premise appliance, private-cloud deployment, or a per-case service model.'],
+    ],
+    bullets: ['Supports major whole-slide scanner platforms.', 'HL7, DICOM, and standard file-system integration.', 'Quarterly quality-assurance review included with deployment.'],
+    cta: 'Plan a site assessment',
+  },
+  'global-offices': {
+    eyebrow: 'CONTACT',
+    title: 'Reach Huayin, by region and by topic.',
+    summary: 'Headquartered in Guangzhou, with regional representatives supporting international partners.',
+    intro: 'For commercial discussions, technical questions, or partnership enquiries, contact our international team. We aim to acknowledge every enquiry within one business day.',
+    stats: [['1', 'Business day response target'], ['29', 'Provinces served'], ['22', 'Provincial laboratories'], ['12,800+', 'Institutional partners nationwide']],
+    sections: [
+      ['International enquiries', 'gbd@huayinlab.com'],
+      ['Group headquarters', 'No. 33 Binhe Road, Huangpu District, Guangzhou, Guangdong Province, China.'],
+      ['Pathology Diagnosis Center', '2nd Floor, Life Science Building, Southern Medical University, Shatai South Road, Baiyun District, Guangzhou, China.'],
+    ],
+    bullets: ['General switchboard: 400-888-1223 (China).', 'Current international focus: Central Asia, the Middle East, Eastern Europe, and South-East Asia.', 'Commercial, technical, and partnership enquiries are routed to the appropriate team.'],
+    cta: 'Send a message',
+  },
+  'global-presence': {
+    eyebrow: 'WHERE WE OPERATE',
+    title: 'From China, serving pathologists worldwide.',
+    summary: 'An established China-wide service network, now extending to selected international partners.',
+    intro: 'Huayin\'s service network spans 29 provinces and regions in China, with 22 provincial reference laboratories and more than 700 jointly established hospital pathology departments. We are extending PanoPath AI and the four-in-one pathology ecosystem through local deployment, private-cloud installation, and per-case diagnostic services.',
+    stats: [['29', 'Provinces and regions'], ['700+', 'Pathology departments'], ['12,800+', 'Institutional partners'], ['2,980+', 'Deep pathology partners']],
+    sections: [['China-wide network', 'Twenty-two provincial reference laboratories support testing, pathology, and remote consultation services.'], ['International deployment', 'Current active focus includes Central Asia, the Middle East, Eastern Europe, and South-East Asia.'], ['Flexible support', 'Worldwide shipping and remote support are available for eligible PanoPath deployments.']],
+    bullets: ['Local deployment and private-cloud installation.', 'Per-case diagnostic services where local regulation permits.', 'Regional partnership-led delivery and support.'],
+    cta: 'Discuss your region',
+  },
+  'clinical-regulatory': {
+    eyebrow: 'EVIDENCE & COMPLIANCE',
+    title: 'We will tell you when the AI is good. We will also tell you when it is not.',
+    summary: 'Validation studies, intended-use statements, regulatory pathways, and quality standards gathered in one place for review.',
+    intro: 'Every disease-specific model is evaluated against senior pathologist consensus on multi-centre cohorts. Huayin reports sensitivity, specificity, reader-study results, and observed failure modes. Regional availability depends on local regulatory clearance, and country-by-country summaries are available to qualified partners.',
+    stats: [['ISO 15189', 'Laboratory accreditation'], ['CAP', 'Recognition at multiple sites'], ['95%+', 'Average AI diagnostic accuracy'], ['70%', 'Average efficiency gain']],
+    sections: [['Clinical validation', 'Multi-centre study summaries identify cohort size, reference standard, performance, and observed limitations.'], ['Intended use', 'Each product is documented with its intended-use statement and applicable deployment constraints.'], ['Regulatory status', 'Country and region status is supplied on request, including where a model remains under review and is not yet cleared.']],
+    bullets: ['ISO 13485 process discipline and accredited laboratory operations.', 'Slide quality-control AI flags more than 18 common pre-analytical defects.', 'Validation dossiers and regulatory summaries available to qualified partners.'],
+    cta: 'Request regulatory summary',
+  },
+  'reference-labs': {
+    eyebrow: 'FOR REFERENCE LABS',
+    title: 'Throughput your lab can price with confidence.',
+    summary: 'PanoPath supports higher-throughput case processing with predictable per-case economics.',
+    intro: 'Reference laboratories operate on per-case economics. PanoPath\'s workflow combines automated quality control, AI pre-screening, structured reporting, and sign-out integration, and is in production across Huayin\'s own 22 provincial reference laboratories. Laboratories can deploy AI on site or use Huayin\'s remote diagnostic network for overflow cases.',
+    stats: [['22', 'Provincial reference labs'], ['520,000+', 'GI diagnostic WSIs'], ['400+', 'Multimodal reports'], ['160+', 'Labelling specialists']],
+    sections: [['On-site deployment', 'Annual licensing and per-case economics for laboratories operating PanoPath in their own environment.'], ['Overflow service', 'Eligible cases can be routed to Huayin\'s remote diagnostic network under a per-case service agreement.'], ['Multimodal reporting', 'Clinical data, IHC, pathology, imaging, and NGS can be combined into one structured report.']],
+    bullets: ['Per-case pricing aligned with reference-laboratory commercial models.', 'Automated QC, AI pre-screening, and structured reporting.', 'Co-developed labelling quality assurance supported by more than 160 specialists.'],
+    cta: 'Talk pricing model',
+  },
+  'pharma-biotech': {
+    eyebrow: 'FOR PHARMA & BIOTECH',
+    title: 'AI biomarker endpoints your regulators can audit.',
+    summary: 'Quantitative IHC scoring, biomarker discovery, and AI-assisted pathology endpoints for clinical trials and companion diagnostics.',
+    intro: 'PanoPath quantitatively scores HER2, Ki-67, ER, PR, and PD-L1 with reproducible, audit-ready image analysis. Pathologist-supervised and confirmed workflows support clinical-trial endpoints and companion-diagnostics development, backed by Huayin\'s 240 pathologists across 14 subspecialties.',
+    stats: [['240', 'Pathologists'], ['14', 'Subspecialties'], ['5', 'Core IHC biomarkers'], ['3M+', 'Training WSIs']],
+    sections: [['AI scoring', 'Reproducible quantitative IHC analysis for HER2, Ki-67, ER, PR, and PD-L1.'], ['Expert adjudication', 'A pathologist committee signs off biomarker outputs and reviews edge cases.'], ['Co-development', 'Multi-centre validation and companion-diagnostics collaboration models are available.']],
+    bullets: ['Tamper-evident signed image outputs aligned with applicable audit expectations.', 'Multi-centre data supports globalisable validation.', 'Spatial transcriptomics interpretation and tumour-origin prediction available on request.'],
+    cta: 'Discuss a trial partnership',
+  },
+  'blog-news': {
+    eyebrow: 'INSIGHTS',
+    title: 'What we are seeing in AI-assisted pathology.',
+    summary: 'Company updates, conference participation, and notes from Huayin pathologists and AI engineers.',
+    intro: 'Updates from Huayin\'s pathology practice, AI Innovation Center, and partners will focus on substance over volume. Content will cover model releases, validation notes, conference work, partnerships, and practical workflow guidance.',
+    stats: [['2–3', 'Planned posts per month'], ['4', 'Content categories'], ['Clinical', 'Named expert authors'], ['Clear', 'Conflict disclosures']],
+    sections: [['Model releases', 'Disease-model updates and concise validation notes.'], ['Events and research', 'Conference presentations, posters, and scientific collaboration.'], ['Workflow guidance', 'Practical notes for laboratories adopting AI-assisted pathology.']],
+    bullets: ['Model releases and validation notes.', 'Conference presentations and partnership announcements.', 'Author role and conflict-of-interest disclosure on each article.'],
+    cta: 'Subscribe to updates',
+  },
+  'clinical-evidence': {
+    eyebrow: 'EVIDENCE',
+    title: 'Studies, validation reports, and post-market data.',
+    summary: 'Evidence presented with study size, reference standard, performance, and failure modes clearly stated.',
+    intro: 'Huayin publishes evidence in the format most useful to pathologists evaluating a new tool: study design, cohort size, reference standard, sensitivity and specificity, and a clear description of where the model underperforms. Internal validation, multi-centre validation, and post-market surveillance are identified separately.',
+    stats: [['n=', 'Cohort size stated'], ['Sensitivity', 'Reported by indication'], ['Specificity', 'Reported by indication'], ['NDA', 'Full dossiers on request']],
+    sections: [['Validation summaries', 'Multi-centre summaries organised by disease module and indication.'], ['Reader studies', 'Pathologist concordance results with the reference standard stated.'], ['Post-market evidence', 'Surveillance updates, scanner compatibility, and labelling methodology where available.']],
+    bullets: ['Physician-readable summaries and full reports are treated as separate resources.', 'Study metadata appears before conclusions.', 'Qualified partners may request full dossiers and benchmark data under NDA.'],
+    cta: 'Request the clinical dossier',
+  },
+  partnerships: {
+    eyebrow: 'PARTNERS',
+    title: 'Local deployment partners, integration partners, and clinical collaborators.',
+    summary: 'Huayin\'s international expansion is partnership-led.',
+    intro: 'We work with local distributors, hospital IT integrators, academic centres, and industry partners to bring PanoPath into new regions. Engagement models include distribution, co-deployment for hospital groups, integration, clinical research, and companion-diagnostics development.',
+    stats: [['3', 'Core partnership models'], ['4', 'Priority regions'], ['10+', 'University partners'], ['1', 'International team']],
+    sections: [['Distribution', 'Regional commercial partners support market access, customer relationships, and local service.'], ['Deployment and integration', 'Hospital IT integrators and technical partners support on-premise and private-cloud delivery.'], ['Research', 'Academic and industry collaborators work with Huayin on validation and product development.']],
+    bullets: ['Regional distribution across priority international markets.', 'Scanner and laboratory-system integration partnerships.', 'Clinical research and companion-diagnostics co-development.'],
+    cta: 'Apply to partner with us',
+  },
+}
+
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
 
 function Logo({ variant = 'header' }) {
   const logoFile = variant === 'footer' ? 'images/huayin-logo-footer.png' : 'images/huayin-logo-header.png'
-  return <a className={`brand brand-${variant}`} href="#top" aria-label="Huayin Healthcare home"><img src={assetUrl(logoFile)} alt="Huayin Healthcare Group" /></a>
+  return <a className={`brand brand-${variant}`} href="#top" aria-label="Huayin Healthcare home" onClick={() => { if (window.location.hash.startsWith('#/')) window.location.hash = '' }}><img src={assetUrl(logoFile)} alt="Huayin Healthcare Group" /></a>
 }
 
 function Header() {
@@ -111,7 +286,7 @@ function Header() {
           {menu === label && <div className="dropdown">{items.map(item => <a href={item.href} onClick={closeNavigation} key={item.label}>{item.label}</a>)}</div>}
         </div>)}
         <a className="language" href="#top">EN <span>/</span> 中</a>
-        <a className="demo-button nav-demo" href="#demo" onClick={closeNavigation}>Request a demo <span>→</span></a>
+        <a className="demo-button nav-demo" href="#/request-demo" onClick={closeNavigation}>Request a demo <span>→</span></a>
       </nav>
     </div>
   </header>
@@ -239,14 +414,31 @@ function EcosystemLoop() {
   </div>
 }
 
+function StandardSubpage({ content }) {
+  return <div className="standard-subpage">
+    <section className="subpage-hero"><div className="section-shell"><p className="eyebrow blue">{content.eyebrow}</p><h1>{content.title}</h1><p className="subpage-summary">{content.summary}</p></div></section>
+    <section className="subpage-stats section-shell">{content.stats.map(([value, label], index) => <article key={`${value}-${label}-${index}`}><strong>{value}</strong><span>{label}</span></article>)}</section>
+    <section className="subpage-intro section-shell"><p className="eyebrow blue">OVERVIEW</p><p>{content.intro}</p></section>
+    {content.visual === 'viewer' && <section className="subpage-viewer section-shell"><PathologyViewer /></section>}
+    <section className="subpage-grid section-shell">{content.sections.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></article>)}</section>
+    <section className="subpage-proof"><div className="section-shell"><div><p className="eyebrow">KEY CAPABILITIES</p><h2>Built for clinical practice.</h2></div><ul>{content.bullets.map(item => <li key={item}>{item}</li>)}</ul></div></section>
+    <section className="subpage-cta"><div className="section-shell"><h2>Start a focused conversation with Huayin.</h2><a className="demo-button" href="mailto:gbd@huayinlab.com">{content.cta} <span>→</span></a></div></section>
+  </div>
+}
+
+function RequestDemoPage() {
+  return <section className="demo-page"><div className="section-shell demo-page-grid"><div><p className="eyebrow blue">GET STARTED</p><h1>Request a PanoPath demonstration.</h1><p>Tell us about your laboratory and the cases you want to discuss. Our international team will reply within one business day.</p><div className="demo-trust"><span>ISO 15189</span><span>CAP recognised sites</span><span>Private enquiry handling</span></div></div><form action="mailto:gbd@huayinlab.com" method="post" encType="text/plain"><label>Full name<input name="name" required /></label><label>Institution / organisation<input name="organisation" required /></label><label>Role / title<input name="role" required /></label><label>Country<input name="country" required /></label><label>Work email<input type="email" name="email" required /></label><label>Indication of interest<select name="interest" required defaultValue=""><option value="" disabled>Select an option</option><option>Histopathology</option><option>Cytopathology</option><option>IHC Quantification</option><option>Slide QC</option><option>Full-stack ecosystem</option><option>Other</option></select></label><label className="full-field">Approximate annual case volume<input name="case-volume" /></label><label className="full-field">What would you like to discuss?<textarea name="note" rows="5"></textarea></label><button className="demo-button" type="submit">Request a Demo <span>→</span></button></form></div></section>
+}
+
 const resolvePage = () => {
-  if (window.location.hash === '#/about-us') return 'about-us'
-  if (window.location.hash === '#/full-stack-ecosystem') return 'full-stack-ecosystem'
+  const route = window.location.hash.replace('#/', '')
+  if (route === 'request-demo' || subpages[route]) return route
   return 'home'
 }
 
 function App() {
   const [page, setPage] = useState(resolvePage)
+  const standardPage = subpages[page]
 
   useEffect(() => {
     const updatePage = () => setPage(resolvePage())
@@ -258,23 +450,13 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'auto' })
   }, [page])
 
-  useEffect(() => {
-    const mount = document.querySelector('.workflow-visual')
-    if (!mount) return undefined
-    const viewerRoot = createRoot(mount)
-    viewerRoot.render(<PathologyViewer />)
-    return () => viewerRoot.unmount()
-  }, [])
-  useEffect(() => {
-    const mount = document.querySelector('.loop-steps')
-    if (!mount) return undefined
-    const loopRoot = createRoot(mount)
-    loopRoot.render(<EcosystemLoop />)
-    return () => loopRoot.unmount()
-  }, [])
-  return <div id="top" className={`${page}-mode`}>
+  return <div id="top" className={`${page}-mode ${standardPage ? 'subpage-mode' : ''}`}>
     <Header />
     <main>
+      {standardPage && <StandardSubpage content={standardPage} />}
+      {page === 'about-us' && <section className="subpage-feature"><div className="section-shell"><section className="china-coverage section-shell" id="coverage"><div className="coverage-copy"><p className="eyebrow blue">CHINA COVERAGE</p><h2>Local reach.<br/>Connected expertise.</h2><p>Huayin serves healthcare partners across 29 provincial-level regions in China. Our network includes 22 provincial-level service sites, with multiple sites operating in selected cities.</p><a className="text-button" href="#/global-offices">Connect with Huayin <span>→</span></a></div><div className="coverage-panel" aria-label="China coverage and service site distribution visualization"><div className="coverage-map"><div className="map-stage"></div></div><aside className="coverage-region-list"><div className="coverage-info coverage-info-regions"><span>BUSINESS COVERAGE</span><b>29</b><p>Provincial-level regions across mainland China.</p></div><div className="coverage-info coverage-info-sites"><span>SERVICE SITE NETWORK</span><b>22</b><p>Provincial reference laboratories supporting the service network.</p></div></aside></div></section></div></section>}
+      {page === 'full-stack-ecosystem' && <section className="subpage-feature"><section className="closed-loop"><div className="section-shell"><div className="closed-loop-heading"><p className="eyebrow">A SELF-REINFORCING ECOSYSTEM</p><h2>Intelligence that keeps<br/>moving forward.</h2><p>Real-world clinical practice makes the ecosystem smarter with every cycle.</p></div><div className="loop-steps"><EcosystemLoop /></div></div></section></section>}
+      {page === 'request-demo' && <RequestDemoPage />}
       <section className="hero hero-video">
         <video className="hero-video-media" autoPlay muted loop playsInline aria-hidden="true"><source src={assetUrl('videos/homepage-hero-latest.mp4')} type="video/mp4" /></video>
         <div className="hero-video-overlay"></div>
@@ -292,9 +474,9 @@ function App() {
 
       <section className="capability-section"><div className="section-shell"><div className="section-heading"><p className="eyebrow blue">WHAT WE ENABLE</p><h2>Built for the next era<br/>of pathology.</h2><a className="text-button" href="#solutions">Discover our capabilities <span>→</span></a></div><div className="capability-grid">{capabilities.map(({ title, copy, image, key }) => <article className={'capability-card capability-' + key} key={title}><img className="capability-image" src={assetUrl(image)} alt="" /><div className="capability-card-content"><h3>{title}</h3><p>{copy}</p><a href="#demo" aria-label={'Learn about ' + title}>Learn more <span>→</span></a></div></article>)}</div></div></section>
 
-      <section className="workflow section-shell"><div className="workflow-visual"><div className="workflow-circle"><span>DATA</span><span>LEARN</span><span>ASSIST</span><b>AI</b></div></div><div className="workflow-copy"><p className="eyebrow blue">THE PanoPath PLATFORM</p><h2>PanoPath: a foundation model for pathology.</h2><p>Trained on Huayin's large real-world WSI database, PanoPath achieves leading performance in multi-task evaluation and turns accumulated clinical intelligence into practical diagnostic assistance.</p><ul><li>10M+ real-world whole-slide images</li><li>40+ disease-specific AI models</li><li>Clinical intelligence designed for daily practice</li></ul><a className="text-button" href="#demo">Explore PanoPath <span>→</span></a></div></section>
+      <section className="workflow section-shell"><div className="workflow-visual"><PathologyViewer /></div><div className="workflow-copy"><p className="eyebrow blue">THE PanoPath PLATFORM</p><h2>PanoPath: a foundation model for pathology.</h2><p>Trained on Huayin's large real-world WSI database, PanoPath achieves leading performance in multi-task evaluation and turns accumulated clinical intelligence into practical diagnostic assistance.</p><ul><li>10M+ real-world whole-slide images</li><li>40+ disease-specific AI models</li><li>Clinical intelligence designed for daily practice</li></ul><a className="text-button" href="#/panopath-platform">Explore PanoPath <span>→</span></a></div></section>
 
-      <section className="closed-loop"><div className="section-shell"><div className="closed-loop-heading"><p className="eyebrow">A SELF-REINFORCING ECOSYSTEM</p><h2>Intelligence that keeps<br/>moving forward.</h2><p>Real-world clinical practice makes the ecosystem smarter with every cycle.</p></div><div className="loop-steps"><article><span>01</span><h3>Big data</h3><p>Millions of whole-slide images from real clinical practice.</p></article><i>→</i><article><span>02</span><h3>Algorithms</h3><p>PanoPath and disease-specific AI models learn from data.</p></article><i>→</i><article><span>03</span><h3>Clinical scenarios</h3><p>AI supports everyday pathology decisions and workflows.</p></article><i>→</i><article><span>04</span><h3>Continuous iteration</h3><p>Clinical feedback strengthens the next generation of intelligence.</p></article></div></div></section>
+      <section className="closed-loop"><div className="section-shell"><div className="closed-loop-heading"><p className="eyebrow">A SELF-REINFORCING ECOSYSTEM</p><h2>Intelligence that keeps<br/>moving forward.</h2><p>Real-world clinical practice makes the ecosystem smarter with every cycle.</p></div><div className="loop-steps"><EcosystemLoop /></div></div></section>
 
       <section className="clinical-value section-shell" id="resources"><div className="clinical-value-copy"><p className="eyebrow blue">PROVEN IN REAL-WORLD PRACTICE</p><h2>More intelligence.<br/>More value in every diagnosis.</h2><p>As an intelligent pathology assistant, Huayin AI has been proven across millions of real-world cases to help healthcare teams work better.</p></div><div className="value-grid"><article className="value-efficiency"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>01 · CLINICAL FLOW</span><h3>Enhance efficiency</h3><p>Support pathologists with timely AI-assisted review and streamlined workflows.</p></div><b aria-hidden="true">↗</b></article><article className="value-cost"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>02 · OPERATIONS</span><h3>Reduce costs</h3><p>Help laboratories optimize operations through connected digital pathology.</p></div><b aria-hidden="true">↗</b></article><article className="value-quality"><div className="value-visual" aria-hidden="true"><i></i><i></i><i></i></div><div><span>03 · DIAGNOSTIC QUALITY</span><h3>Improve quality</h3><p>Bring consistent intelligence to more diagnostic decisions, wherever patients are.</p></div><b aria-hidden="true">↗</b></article></div></section>
 
@@ -306,7 +488,7 @@ function App() {
 
       <section className="demo-section" id="demo"><div className="section-shell demo-inner"><div><p className="eyebrow">LET'S SHAPE WHAT'S NEXT</p><h2>Ready to transform<br/>your pathology workflow?</h2></div><div><p>Talk with our team about your clinical, operational and deployment needs.</p><a className="demo-button light" href="mailto:international@huayinhealthcare.com">Request a demo <span>→</span></a></div></div></section>
     </main>
-    <footer id="contact"><div className="section-shell footer-grid"><div><Logo variant="footer" /><p>AI-powered pathology solutions for a more connected global healthcare future.</p></div><div><h4>Explore</h4><a href="#company">Company</a><a href="#platform">PanoPath</a><a href="#solutions">Solutions</a></div><div><h4>Connect</h4><a href="#contact">Global Offices</a><a href="#demo">Request a Demo</a><a href="mailto:international@huayinhealthcare.com">Contact us</a></div><div><h4>Legal</h4><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Regulatory Compliance</a></div></div><div className="footer-base section-shell"><span>© 2026 Huayin Healthcare Group. All rights reserved.</span><span>Guangzhou · Global</span></div></footer>
+    <footer id="contact"><div className="section-shell footer-grid"><div><Logo variant="footer" /><p>AI-powered pathology solutions for a more connected global healthcare future.</p></div><div><h4>Explore</h4><a href="#/about-us">Company</a><a href="#/panopath-platform">PanoPath</a><a href="#/full-stack-ecosystem">Solutions</a></div><div><h4>Connect</h4><a href="#/global-offices">Global Offices</a><a href="#/request-demo">Request a Demo</a><a href="mailto:gbd@huayinlab.com">Contact us</a></div><div><h4>Legal</h4><a href="#top">Privacy Policy</a><a href="#top">Terms of Use</a><a href="#top">Regulatory Compliance</a></div></div><div className="footer-base section-shell"><span>© 2026 Huayin Healthcare Group. All rights reserved.</span><span>Guangzhou · Global</span></div></footer>
   </div>
 }
 

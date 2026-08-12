@@ -24,6 +24,17 @@
   white-space: nowrap;
 }
 
+@media (hover: hover) and (min-width: 801px) {
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -18px;
+    width: 270px;
+    height: 18px;
+  }
+}
+
 .dropdown {
   top: 48px;
   width: 270px;
@@ -73,29 +84,16 @@
   flex: 0 0 auto;
 }
 
-.home-mode .china-coverage {
+.home-mode main > .china-coverage {
   display: none;
 }
 
-.home-mode .closed-loop {
+.home-mode main > .closed-loop {
   display: none;
 }
 
-.about-us-mode main {
-  min-height: calc(100vh - 320px);
-  padding-top: 74px;
-}
-
-.about-us-mode main > :not(.china-coverage) {
-  display: none !important;
-}
-
-.full-stack-ecosystem-mode main {
-  min-height: calc(100vh - 320px);
-  padding-top: 74px;
-}
-
-.full-stack-ecosystem-mode main > :not(.closed-loop) {
+.request-demo-mode main > :not(.demo-page),
+.subpage-mode main > :not(.standard-subpage):not(.subpage-feature) {
   display: none !important;
 }
 
