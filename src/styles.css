@@ -21,32 +21,25 @@
 .stats {
   position: relative;
   z-index: 4;
-  width: min(1180px, calc(100% - 64px));
-  margin: 44px auto 0;
+  width: 100%;
+  margin: 56px 0 0;
+  padding: 0 max(32px, calc((100% - 1180px) / 2));
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  overflow: hidden;
-  border: 1px solid #cfe8f1;
-  border-radius: 12px;
-  background: #eef9fc;
-  box-shadow: 0 16px 36px rgba(22, 91, 132, 0.12);
+  background: #edf7fa;
 }
 
 .stats article {
   position: relative;
-  min-height: 164px;
-  padding: 45px 28px 28px;
-  overflow: hidden;
-  border-top: 3px solid #4cc6e6;
-  border-right: 1px solid #d5ebf2;
-  background: linear-gradient(145deg, #ffffff 0%, #edf9fc 100%);
-  transition: background 260ms ease, box-shadow 260ms ease;
+  min-height: 188px;
+  padding: 54px 28px 32px;
+  border: 0;
+  background: transparent;
 }
 
 .stats article:nth-child(2),
 .stats article:nth-child(3),
-.stats article:nth-child(4) { background: linear-gradient(145deg, #ffffff 0%, #edf9fc 100%); }
-.stats article:last-child { border-right: 0; }
+.stats article:nth-child(4) { background: transparent; }
 
 .stats article::before {
   position: absolute;
@@ -64,23 +57,6 @@
 .stats article:nth-child(3)::before { content: 'COVERAGE'; }
 .stats article:nth-child(4)::before { content: 'NETWORK'; }
 
-.stats article::after {
-  position: absolute;
-  right: -42px;
-  bottom: -70px;
-  width: 146px;
-  height: 146px;
-  border: 1px solid rgba(37, 161, 203, 0.15);
-  border-radius: 50%;
-  box-shadow: 0 0 0 22px rgba(85, 198, 230, 0.045), 0 0 0 46px rgba(85, 198, 230, 0.03);
-  content: '';
-}
-
-.stats article:hover {
-  background: #ffffff;
-  box-shadow: inset 0 0 0 1px rgba(61, 179, 216, 0.23);
-}
-
 .stats strong,
 .stats span {
   position: relative;
@@ -94,7 +70,6 @@
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -0.075em;
-  text-shadow: 0 6px 18px rgba(25, 111, 161, 0.1);
 }
 
 .stats span {
@@ -111,25 +86,21 @@
 }
 
 .intro {
-  padding-top: 78px;
+  padding-top: 96px;
 }
 
 @media (max-width: 800px) {
   .stats {
-    width: min(540px, calc(100% - 32px));
-    margin: 32px auto 0;
+    width: 100%;
+    margin: 40px 0 0;
+    padding: 0 16px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .stats article {
-    min-height: 142px;
-    padding: 42px 20px 22px;
-    border-bottom: 1px solid #d5ebf2;
+    min-height: 150px;
+    padding: 46px 20px 24px;
   }
-
-  .stats article:nth-child(2) { border-right: 0; }
-  .stats article:nth-child(3),
-  .stats article:nth-child(4) { border-bottom: 0; }
 
   .stats article::before { left: 20px; }
   .stats article:first-child { padding-left: 20px; }
