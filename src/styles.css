@@ -52,10 +52,10 @@
   letter-spacing: 0.12em;
 }
 
-.stats article:nth-child(1)::before { content: 'DATA'; }
-.stats article:nth-child(2)::before { content: 'MODELS'; }
-.stats article:nth-child(3)::before { content: 'COVERAGE'; }
-.stats article:nth-child(4)::before { content: 'NETWORK'; }
+.stats article:nth-child(1)::before { content: 'DATABASE'; }
+.stats article:nth-child(2)::before { content: 'AI CASES'; }
+.stats article:nth-child(3)::before { content: 'MODELS'; }
+.stats article:nth-child(4)::before { content: 'SITES'; }
 
 .stats strong,
 .stats span {
@@ -89,6 +89,12 @@
   padding-top: 96px;
 }
 
+.hero-video h1 { max-width: 1040px; font-size: clamp(44px, 5.5vw, 82px); line-height: .98; }
+.hero-proof { max-width: 690px; margin: 14px 0 0; color: rgba(255,255,255,.72); font-size: 13px; line-height: 1.65; }
+.hero-cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-cta-row .hero-video-link { margin-top: 0; }
+.hero-video-link-secondary { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.48); }
+
 @media (max-width: 800px) {
   .stats {
     width: 100%;
@@ -106,4 +112,6 @@
   .stats article:first-child { padding-left: 20px; }
   .stats strong { font-size: 38px; }
   .stats span { font-size: 11px; }
+  .hero-video h1 { font-size: clamp(42px, 12vw, 64px); }
+  .hero-proof { font-size: 12px; line-height: 1.55; }
 }
