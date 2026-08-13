@@ -123,6 +123,10 @@
 .demo-page input,.demo-page select,.demo-page textarea { width: 100%; border: 1px solid #cfdce7; border-radius: 2px; padding: 12px; background: #fff; color: #10213a; font: inherit; font-size: 14px; }
 .demo-page textarea { resize: vertical; }
 .demo-page .full-field { grid-column: 1 / -1; }
+.demo-page .demo-consent { display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start; color: #3e5874; font-size: 13px; font-weight: 500; line-height: 1.6; cursor: pointer; }
+.demo-page .demo-consent input[type="checkbox"] { width: 18px; height: 18px; margin: 2px 0 0; padding: 0; accent-color: #075dbd; cursor: pointer; }
+.demo-privacy { margin: -2px 0 2px; color: #667b92; font-size: 12px; line-height: 1.65; }
+.privacy-notice-label { color: #075dbd; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .demo-page button { border: 0; cursor: pointer; }
 
 @media (max-width: 900px) {
