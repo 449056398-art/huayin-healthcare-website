@@ -85,15 +85,25 @@ const subpages = {
   'about-us': {
     eyebrow: 'ABOUT HUAYIN',
     title: 'Pathology-first diagnostics, built at scale.',
-    summary: 'A specialist reference laboratory and AI diagnostics company serving more than 12,800 institutional partners nationwide across laboratory testing, pathology, and related healthcare services.',
-    intro: 'Huayin Healthcare Group is a pathology-led independent medical laboratory and diagnostics company headquartered in Guangzhou, China. Since 2012, we have built our service network around one clinical question: how do we give every patient access to the same quality of pathological diagnosis, regardless of where they live? Today, our 22 provincial reference laboratories deliver anatomical pathology, clinical laboratory testing, remote pathology consultation, molecular diagnostics, clinical research support, and public-health screening.',
+    summary: 'A specialist reference laboratory and AI diagnostics company serving more than 12,800 healthcare providers across 29 Chinese provinces.',
+    intro: [
+      'Huayin Healthcare Group is a pathology-led independent medical laboratory and diagnostics company headquartered in Guangzhou, China. Since 2012, we have built our service network around one clinical question: how do we give every patient access to the same quality of pathological diagnosis, regardless of where they live?',
+      'Today, our 22 provincial reference laboratories and the jointly established Southern Medical University – Huayin Pathology Diagnosis Center deliver anatomical pathology, clinical laboratory testing, remote pathology consultation, molecular diagnostics, clinical research support, and public-health screening to more than 12,800 institutions. We hold ISO 15189 accreditation and CAP recognition at multiple sites.',
+      'In 2025, we released PanoPath, our proprietary pathology foundation model, and integrated it into a closed-loop ecosystem that combines AI, the Pathology Information System (PIS), digital slide scanners, and field service. The same diagnostic intelligence that supports our in-house laboratories is now available to hospital pathology departments worldwide.',
+    ],
     stats: [['2012', 'Founded'], ['22', 'Provincial laboratories'], ['29', 'Provinces served'], ['12,800+', 'Institutional partners nationwide']],
     sections: [
       ['Pathology-led since 2012', 'Huayin is pathology-centric, not a general laboratory that added AI as an afterthought.'],
       ['Clinical and academic depth', 'The jointly established Southern Medical University – Huayin Pathology Diagnosis Center connects specialist expertise with daily diagnostic practice.'],
       ['AI grounded in practice', 'PanoPath combines foundation-model AI, the Pathology Information System, digital slide scanners, and field service in one closed clinical workflow.'],
     ],
-    bullets: ['ISO 15189 accreditation and CAP recognition at multiple sites.', 'Active across 29 provinces with more than 12,800 institutional partners nationwide.', 'PanoPath makes the same diagnostic intelligence used in Huayin laboratories available to hospital pathology departments.'],
+    bullets: [
+      'Pathology-centric since 2012 — not a general lab that added AI as an afterthought.',
+      'Joint Pathology Diagnosis Center with Southern Medical University, one of China\'s leading medical schools.',
+      'Accredited to ISO 15189 and CAP at multiple laboratory sites.',
+      'Active in 29 provinces; more than 12,800 institutional customers served.',
+      'Foundation-model approach to pathology AI (PanoPath), not a patchwork of narrow classifiers.',
+    ],
     cta: 'Talk to a Huayin representative',
   },
   'leadership-team': {
@@ -415,10 +425,11 @@ function EcosystemLoop() {
 }
 
 function StandardSubpage({ content }) {
+  const introParagraphs = Array.isArray(content.intro) ? content.intro : [content.intro]
   return <div className="standard-subpage">
     <section className="subpage-hero"><div className="section-shell"><p className="eyebrow blue">{content.eyebrow}</p><h1>{content.title}</h1><p className="subpage-summary">{content.summary}</p></div></section>
     <section className="subpage-stats section-shell">{content.stats.map(([value, label], index) => <article key={`${value}-${label}-${index}`}><strong>{value}</strong><span>{label}</span></article>)}</section>
-    <section className="subpage-intro section-shell"><p className="eyebrow blue">OVERVIEW</p><p>{content.intro}</p></section>
+    <section className="subpage-intro section-shell"><p className="eyebrow blue">OVERVIEW</p><div className="subpage-intro-copy">{introParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>
     {content.visual === 'viewer' && <section className="subpage-viewer section-shell"><PathologyViewer /></section>}
     <section className="subpage-grid section-shell">{content.sections.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></article>)}</section>
     <section className="subpage-proof"><div className="section-shell"><div><p className="eyebrow">KEY CAPABILITIES</p><h2>Built for clinical practice.</h2></div><ul>{content.bullets.map(item => <li key={item}>{item}</li>)}</ul></div></section>
