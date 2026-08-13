@@ -48,7 +48,7 @@ const stats = [
   { value: 10, suffix: 'M+', label: 'Real-world whole-slide images' },
   { value: 40, suffix: '+', label: 'Disease-specific AI models' },
   { value: 99, suffix: '%', label: 'Routine diagnostic scenarios covered' },
-  { value: 2400, suffix: '+', label: 'AI-enabled pathology institutions' },
+  { value: 2000, suffix: '+', label: 'AI-enabled pathology institutions' },
 ]
 
 const capabilities = [
@@ -212,7 +212,7 @@ const subpages = {
       'Hospital pathology departments face the same pressure: more cases, fewer specialists, and rising expectations for molecular and IHC reporting. PanoPath assists with the high-volume routine while preserving senior-pathologist review for every final report.',
       'In deployed sites, AI-assisted workflow has been associated with single-case efficiency gains of approximately 70% and a near-95% concordance with senior pathologist review across the routine case mix.',
     ],
-    stats: [['70%', 'Per-case efficiency gain'], ['95%+', 'Concordance with senior review'], ['2,400+', 'AI-enabled pathology institutions'], ['5M+', 'AI-assisted diagnostic WSIs']],
+    stats: [['70%', 'Per-case efficiency gain'], ['95%+', 'Concordance with senior review'], ['2,000+', 'AI-enabled pathology institutions'], ['5M+', 'AI-assisted diagnostic WSIs']],
     sections: [
       ['Integrate', 'Connect to existing scanners and laboratory systems through standard interfaces and file ingestion.'],
       ['Assist', 'AI pre-screening, suspicious-region highlighting, and structured report output support routine workflows.'],
