@@ -63,12 +63,14 @@
   padding: 100px 0 76px;
 }
 
-.subpage-intro > p:last-child {
+.subpage-intro-copy p {
   margin: 0;
   color: #405873;
   font-size: 18px;
   line-height: 1.8;
 }
+
+.subpage-intro-copy p + p { margin-top: 22px; }
 
 .subpage-viewer { padding-bottom: 80px; }
 .subpage-viewer .pathology-viewer { max-width: 920px; margin: 0 auto; }
@@ -137,7 +139,7 @@
   .subpage-stats article { padding: 23px 14px; }
   .subpage-stats strong { font-size: 25px; }
   .subpage-intro { grid-template-columns: 1fr; gap: 14px; padding: 72px 0 55px; }
-  .subpage-intro > p:last-child { font-size: 16px; }
+  .subpage-intro-copy p { font-size: 16px; }
   .subpage-grid { grid-template-columns: 1fr; padding-bottom: 72px; }
   .subpage-grid article { min-height: 220px; }
   .subpage-proof { padding: 70px 0; }
