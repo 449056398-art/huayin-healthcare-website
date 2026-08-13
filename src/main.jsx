@@ -16,6 +16,7 @@ import './company-headquarters.css'
 import './ecosystem-refine.css'
 import './narrative-layout.css'
 import './subpages.css'
+import './partner-marquee.css'
 
 const navItems = [
   { label: 'Company', items: [
@@ -49,6 +50,28 @@ const stats = [
   { value: 40, suffix: '+', label: 'Disease-specific AI models' },
   { value: 99, suffix: '%', label: 'Routine diagnostic scenarios covered' },
   { value: 2000, suffix: '+', label: 'AI-enabled pathology institutions' },
+]
+
+const partnerLogos = [
+  ['partner-01.png', 'Jinfeng Laboratory'],
+  ['partner-02.png', 'Fujian Cancer Hospital'],
+  ['partner-03.png', 'Nanfang Hospital'],
+  ['partner-04.png', 'Xuanwu Hospital Capital Medical University'],
+  ['partner-05.png', 'Beijing Tiantan Hospital Capital Medical University'],
+  ['partner-06.png', 'The Southwest Hospital of AMU'],
+  ['partner-07.png', "Guangdong Provincial People's Hospital"],
+  ['partner-08.png', 'The First Hospital of China Medical University'],
+  ['partner-09.png', 'Anzhen Hospital'],
+  ['partner-10.png', 'Chongqing University Fuling Hospital'],
+  ['partner-11.png', 'The First Affiliated Hospital of Zhengzhou University'],
+  ['partner-12.png', 'PLA Rocket Force General Hospital'],
+  ['partner-13.png', 'Tianjin Medical University General Hospital'],
+  ['partner-14.png', 'Chifeng Municipal Hospital'],
+  ['partner-15.png', 'Peking University Cancer Hospital Inner Mongolia Hospital'],
+  ['partner-16.png', 'Huazhong University of Science and Technology Union Shenzhen Hospital'],
+  ['partner-17.png', 'The First Dongguan Affiliated Hospital of Guangdong Medical University'],
+  ['partner-18.png', "Xuchang People's Hospital"],
+  ['partner-19.png', 'Shanxi Cancer Hospital'],
 ]
 
 const capabilities = [
@@ -403,6 +426,23 @@ function AnimatedStat({ value, suffix, label }) {
   return <article ref={elementRef}><strong>{current.toLocaleString('en-US')}{suffix}</strong><span>{label}</span></article>
 }
 
+function PartnerMarquee() {
+  const logoSet = (duplicate = false) => partnerLogos.map(([file, name]) => (
+    <div className="partner-logo" key={`${duplicate ? 'duplicate-' : ''}${file}`}>
+      <img src={assetUrl(`images/partners/${file}`)} alt={duplicate ? '' : name} />
+    </div>
+  ))
+
+  return <section className="partner-strip" aria-label="Selected healthcare partners">
+    <div className="partner-marquee">
+      <div className="partner-marquee-track">
+        <div className="partner-logo-set">{logoSet()}</div>
+        <div className="partner-logo-set" aria-hidden="true">{logoSet(true)}</div>
+      </div>
+    </div>
+  </section>
+}
+
 function SolutionIcon({ type }) {
   const paths = {
     ai: <><path d="M7 4h10l3 3v10l-3 3H7l-3-3V7z"/><path d="M9 12h6M12 9v6M2 10v4M22 10v4M10 2v2M14 2v2M10 20v2M14 20v2"/></>,
@@ -546,6 +586,8 @@ function App() {
       </section>
 
       <section className="stats section-shell">{stats.map((stat) => <AnimatedStat key={stat.label} {...stat} />)}</section>
+
+      <PartnerMarquee />
 
       <section className="intro section-shell" id="platform"><div><p className="eyebrow blue">THE INTELLIGENCE BEHIND SMARTER PATHOLOGY</p><h2>From every case,<br/>a better next case.</h2></div><p>As a pioneer in telepathology, Huayin has built a real-world pathology data foundation that brings big data, algorithms and clinical scenarios into one continuously improving ecosystem.</p></section>
 
