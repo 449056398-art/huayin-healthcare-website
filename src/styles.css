@@ -26,7 +26,7 @@
   padding: 0 max(32px, calc((100% - 1180px) / 2));
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  background: #edf7fa;
+  background: #fff;
 }
 
 .stats article {
