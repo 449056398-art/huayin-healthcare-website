@@ -247,7 +247,268 @@ const subpages = {
     ],
     bullets: [
       'Connects with major whole-slide scanners, including Hamamatsu, Philips, Leica, Aperio, 3DHistech, and KFBIO.',
-      'Integrates with LIS through HL7, DICOM, and standard file-system ingest…5286 tokens truncated… and AI result" aria-valuemin="8" aria-valuemax="92" aria-valuenow={Math.round(split)} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={moveWithKeyboard}><span>↔</span></div>
+      'Integrates with LIS through HL7, DICOM, and standard file-system ingestion.',
+      'On-premise AI appliance, private-cloud, and per-case service models are supported.',
+      'Structured-report output aligns with existing report templates.',
+      'Quarterly quality-assurance review is included with deployment.',
+    ],
+    cta: 'Plan a site assessment',
+  },
+  'global-offices': {
+    eyebrow: 'CONTACT',
+    title: 'Reach Huayin — by region, by topic.',
+    summary: 'Headquarters in Guangzhou, with regional representatives across Central Asia, the Middle East, Eastern Europe, and South-East Asia.',
+    intro: 'For commercial discussions, technical questions, or partnership enquiries, contact the Huayin office nearest to you. We aim to acknowledge every enquiry within one business day.',
+    stats: [['1', 'Business day response target'], ['30', 'Provinces served'], ['18', 'Provincial laboratories'], ['10,000+', 'Institutional customers']],
+    sections: [
+      ['International enquiries', 'intl@huayinlab.com'],
+      ['Group headquarters', 'No. 33 Binhe Road, Huangpu District, Guangzhou, Guangdong Province, China.'],
+      ['Pathology Diagnosis Center', '2nd Floor, Life Science Building, Southern Medical University, No. 1023-1063 Shatai South Road, Baiyun District, Guangzhou, China.'],
+    ],
+    bullets: ['Headquarters international enquiries: intl@huayinlab.com.', 'General switchboard: 400-888-1223 (China).', 'Group headquarters: No. 33 Binhe Road, Huangpu District, Guangzhou, Guangdong Province, China.', 'Pathology Diagnosis Center: 2nd Floor, Life Science Building, Southern Medical University, No. 1023-1063 Shatai South Road, Baiyun District, Guangzhou, China.', 'Group website: http://www.huayinlab.com.'],
+    cta: 'Send a message',
+  },
+  'global-presence': {
+    eyebrow: 'WHERE WE OPERATE',
+    title: 'From China, serving pathologists worldwide.',
+    summary: 'An established China-wide service network, now extending to international partners.',
+    intro: [
+      'Huayin\'s service network spans 30 provinces and regions in China, with 18 provincial reference laboratories and more than 700 jointly established hospital pathology departments. Over 10,000 institutional customers rely on our testing and remote consultation services.',
+      'We are now extending PanoPath AI and the Huayin four-in-one pathology ecosystem to selected international partners — through local deployment, private-cloud installation, and per-case diagnostic services. Current active regions include Central Asia, the Middle East, Eastern Europe, and South-East Asia.',
+    ],
+    stats: [['30', 'Provinces and regions'], ['700+', 'Pathology departments'], ['10,000+', 'Institutional customers'], ['1,200+', 'Deep pathology partners']],
+    sections: [['China-wide network', 'Eighteen provincial reference laboratories support testing, pathology, and remote consultation services.'], ['International deployment', 'Current active focus includes Central Asia, the Middle East, Eastern Europe, and South-East Asia.'], ['Flexible support', 'Worldwide shipping and remote support are available for eligible PanoPath deployments.']],
+    bullets: ['30 Chinese provinces and regions served.', '18 provincial reference laboratories.', '700+ hospital pathology departments jointly established.', '1,200+ deep pathology collaboration customers.', 'Worldwide shipping and remote support are available for PanoPath deployments.', 'Active international focus: Central Asia, the Middle East, Eastern Europe, and South-East Asia.'],
+    cta: 'Discuss your region',
+  },
+  'clinical-regulatory': {
+    eyebrow: 'EVIDENCE & COMPLIANCE',
+    title: 'We will tell you when the AI is good. We will also tell you when it is not.',
+    summary: 'Validation studies, intended-use statements, regulatory pathways, and quality standards gathered in one place for review.',
+    intro: [
+      'Huayin\'s smart pathology services have completed clinical validation and are advancing through NMPA Class II/III registration. Clinical validation shows that AI-assisted screening is expected to reduce single-slide screening time to the minute level, routine pathology report turnaround to within three days, and increase pathologist daily diagnostic throughput by over 50%.',
+      'Every disease-specific model has been evaluated against senior pathologist consensus on multi-centre cohorts. We publish sensitivity, specificity, and reader-study results, including the failure modes we have observed, such as rare subtypes and low cellularity.',
+      'PanoPath and its deployment components are in active regulatory pathways. Regional availability of any given model depends on local regulatory clearance; we provide a country-by-country summary to qualified partners.',
+    ],
+    stats: [['ISO 15189', 'Laboratory accreditation'], ['CAP', 'Recognition at multiple sites'], ['50%+', 'Daily diagnostic throughput gain'], ['3 days', 'Routine report turnaround']],
+    sections: [['Clinical validation', 'Multi-centre study summaries identify cohort size, reference standard, performance, and observed limitations.'], ['Intended use', 'Each product is documented with its intended-use statement and applicable deployment constraints.'], ['Regulatory status', 'Country and region status is supplied on request, including where a model remains under review and is not yet cleared.']],
+    bullets: ['Multi-centre validation studies with cohort size reported.', 'Intended-use statements for each product.', 'Regulatory status by country or region is available on request under NDA.', 'Quality management includes ISO 13485 process discipline; multiple laboratories hold ISO 15189 and CAP recognition.', 'Quality-control AI flags 18+ common pre-analytical slide defects.', 'Per-case diagnostic services are available where local regulation permits a service-based model.'],
+    cta: 'Request regulatory summary',
+  },
+  'reference-labs': {
+    eyebrow: 'FOR REFERENCE LABS',
+    title: 'Throughput your lab can price with confidence.',
+    summary: 'PanoPath runs the same case mix at higher throughput, so you can quote per-case pricing with predictable margin.',
+    intro: [
+      'Reference laboratories operate on per-case economics. PanoPath\'s workflow — automated quality control, AI pre-screening, structured reporting, and integration with sign-out — was designed inside a high-volume reference laboratory and is now in production across Huayin\'s own 18 provincial reference laboratories.',
+      'We offer laboratories two engagement models: deploy the AI on site with annual licensing and per-case economics, or send overflow cases to Huayin\'s remote diagnostic network under a per-case service agreement.',
+    ],
+    stats: [['18', 'Provincial reference labs'], ['520,000+', 'GI diagnostic WSIs'], ['400+', 'Multimodal reports'], ['160+', 'Labelling specialists']],
+    sections: [['On-site deployment', 'Annual licensing and per-case economics for laboratories operating PanoPath in their own environment.'], ['Overflow service', 'Eligible cases can be routed to Huayin\'s remote diagnostic network under a per-case service agreement.'], ['Multimodal reporting', 'Clinical data, IHC, pathology, imaging, and NGS can be combined into one structured report.']],
+    bullets: ['Per-case pricing aligned with your commercial model, with no per-slide surprises.', 'AI-assisted GI biopsy module: 520,000+ diagnostic WSIs processed to date.', '99.9% sensitivity on adenocarcinomas and common benign lesions, including segmentation guidance.', 'Multimodal reporting combines clinical data, IHC, pathology, imaging, and NGS in one structured report.', '400+ multimodal reports generated to date within Huayin\'s network.', 'Co-developed labelling quality assurance is supported by more than 160 high-level labelling personnel.'],
+    cta: 'Talk pricing model',
+  },
+  'pharma-biotech': {
+    eyebrow: 'FOR PHARMA & BIOTECH',
+    title: 'AI biomarker endpoints your regulators can audit.',
+    summary: 'Quantitative IHC scoring, biomarker discovery, and AI-assisted pathology endpoints for clinical-trial and companion-diagnostics workflows.',
+    intro: [
+      'PanoPath\'s quantitative IHC module scores HER2, Ki-67, ER, PR, and PD-L1 with reproducible, audit-ready image analysis. Pathologist-supervised and pathologist-confirmed workflows support both clinical-trial endpoints and companion-diagnostics development.',
+      'Huayin\'s 200+ pathologists across 14 subspecialties provide the expert committee that signs off on biomarker outputs and review edge cases. Multi-centre cohorts spanning China, North America, and Europe give sponsors globalisable training and validation data.',
+    ],
+    stats: [['200+', 'Pathologists'], ['14', 'Subspecialties'], ['5', 'Core IHC biomarkers'], ['Multi-centre', 'Global validation data']],
+    sections: [['AI scoring', 'Reproducible quantitative IHC analysis for HER2, Ki-67, ER, PR, and PD-L1.'], ['Expert adjudication', 'A pathologist committee signs off biomarker outputs and reviews edge cases.'], ['Co-development', 'Multi-centre validation and companion-diagnostics collaboration models are available.']],
+    bullets: ['AI-assisted quantitative IHC scoring for HER2, Ki-67, ER, PR, and PD-L1.', 'Pathologist committee for biomarker sign-off and adjudication.', 'Tamper-evident signed image outputs aligned with 21 CFR Part 11 expectations where applicable.', 'Multi-centre data for globalisable validation.', 'Spatial transcriptomics interpretation and tumour-origin prediction available on request.', 'Companion-diagnostics co-development agreements are available.'],
+    cta: 'Discuss a trial partnership',
+  },
+  'blog-news': {
+    eyebrow: 'INSIGHTS',
+    title: 'What we are seeing in AI-assisted pathology.',
+    summary: 'Company updates, conference participation, and short notes from our pathology and AI teams.',
+    intro: 'Updates from Huayin\'s pathology practice, our AI Innovation Center, and our partners. We aim for substance over volume — expect two to three posts a month, written by working pathologists and engineers.',
+    stats: [['2–3', 'Planned posts per month'], ['4', 'Content categories'], ['Clinical', 'Named expert authors'], ['Clear', 'Conflict disclosures']],
+    sections: [['Model releases', 'Disease-model updates and concise validation notes.'], ['Events and research', 'Conference presentations, posters, and scientific collaboration.'], ['Workflow guidance', 'Practical notes for laboratories adopting AI-assisted pathology.']],
+    bullets: ['New disease-model releases and validation notes.', 'Conference presentations and posters.', 'Partnership announcements.', 'Workflow guides for adopting AI in the laboratory.'],
+    cta: 'Subscribe to updates',
+  },
+  'clinical-evidence': {
+    eyebrow: 'EVIDENCE',
+    title: 'Studies, validation reports, and post-market data.',
+    summary: 'Validation methodology, sensitivity and specificity by indication, and reader-study results — with study size, reference standard, and failure modes clearly stated.',
+    intro: [
+      'We publish evidence in the format most useful to a pathologist evaluating a new tool: study design, cohort size, reference standard, sensitivity and specificity, and a frank description of where the model underperforms. We distinguish between internal validation, multi-centre validation, and post-market surveillance.',
+      'Qualified partners can request full validation dossiers and raw benchmark data under NDA.',
+    ],
+    stats: [['n=', 'Cohort size stated'], ['Sensitivity', 'Reported by indication'], ['Specificity', 'Reported by indication'], ['NDA', 'Full dossiers on request']],
+    sections: [['Validation summaries', 'Multi-centre summaries organised by disease module and indication.'], ['Reader studies', 'Pathologist concordance results with the reference standard stated.'], ['Post-market evidence', 'Surveillance updates, scanner compatibility, and labelling methodology where available.']],
+    bullets: ['Multi-centre validation summaries by disease module.', 'Reader-study results with pathologist concordance.', 'Post-market surveillance updates where available.', 'Labelling and ground-truth methodology.', 'Scanner-compatibility validation.'],
+    cta: 'Request the clinical dossier',
+  },
+  partnerships: {
+    eyebrow: 'PARTNERS',
+    title: 'Local deployment partners, integration partners, and clinical collaborators.',
+    summary: 'We work with local distributors, hospital IT integrators, and academic centres to bring PanoPath into new regions. Tell us what you bring to the table.',
+    intro: [
+      'Huayin\'s international expansion is partnership-led. We are looking for regional partners who can deliver on-the-ground deployment, integration, training, and customer support — combined with our technology and clinical expertise.',
+      'Engagement models include distribution, co-deployment for hospital groups, and joint clinical research.',
+    ],
+    stats: [['3', 'Core partnership models'], ['4', 'Priority regions'], ['10+', 'University partners'], ['1', 'International team']],
+    sections: [['Distribution', 'Regional commercial partners support market access, customer relationships, and local service.'], ['Deployment and integration', 'Hospital IT integrators and technical partners support on-premise and private-cloud delivery.'], ['Research', 'Academic and industry collaborators work with Huayin on validation and product development.']],
+    bullets: ['Regional distribution across Central Asia, the Middle East, Eastern Europe, and South-East Asia.', 'On-premise and private-cloud deployment partners.', 'Clinical research collaboration with academic centres.', 'Scanner and LIS integration partners.', 'Companion-diagnostics co-development with pharma and biotech.'],
+    cta: 'Apply to partner with us',
+  },
+}
+
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
+
+function Logo({ variant = 'header' }) {
+  const logoFile = variant === 'footer' ? 'images/huayin-logo-footer.png' : 'images/huayin-logo-header.png'
+  return <a className={`brand brand-${variant}`} href="#top" aria-label="Huayin Healthcare home" onClick={() => { if (window.location.hash.startsWith('#/')) window.location.hash = '' }}><img src={assetUrl(logoFile)} alt="Huayin Healthcare Group" /></a>
+}
+
+function Header() {
+  const [open, setOpen] = useState(false)
+  const [menu, setMenu] = useState(null)
+  const closeNavigation = () => {
+    setOpen(false)
+    setMenu(null)
+  }
+  const closeMenuOnPointerLeave = () => {
+    if (window.matchMedia('(hover: hover)').matches) setMenu(null)
+  }
+  const toggleMenu = (label) => {
+    const canHover = window.matchMedia('(hover: hover)').matches
+    setMenu((current) => canHover ? label : (current === label ? null : label))
+  }
+  return <header className="site-header">
+    <div className="nav-wrap">
+      <Logo />
+      <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}><span></span><span></span><span></span></button>
+      <nav className={open ? 'main-nav open' : 'main-nav'}>
+        {navItems.map(({ label, items }) => <div className="nav-item" key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={closeMenuOnPointerLeave}>
+          <button onClick={() => toggleMenu(label)} aria-expanded={menu === label}>{label}<span className="chevron">⌄</span></button>
+          {menu === label && <div className="dropdown">{items.map(item => <a href={item.href} onClick={closeNavigation} key={item.label}>{item.label}</a>)}</div>}
+        </div>)}
+        <a className="language" href="#top">EN <span>/</span> 中</a>
+        <a className="demo-button nav-demo" href="#/request-demo" onClick={closeNavigation}>Request a demo <span>→</span></a>
+      </nav>
+    </div>
+  </header>
+}
+
+function AnimatedStat({ value, suffix, label }) {
+  const [current, setCurrent] = useState(0)
+  const elementRef = useRef(null)
+
+  useEffect(() => {
+    const element = elementRef.current
+    if (!element) return undefined
+    let frameId
+    const animate = () => {
+      const startedAt = performance.now()
+      const duration = 1500
+      const tick = (now) => {
+        const progress = Math.min((now - startedAt) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setCurrent(Math.round(value * eased))
+        if (progress < 1) frameId = requestAnimationFrame(tick)
+      }
+      frameId = requestAnimationFrame(tick)
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        animate()
+        observer.disconnect()
+      }
+    }, { threshold: 0.45 })
+    observer.observe(element)
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(frameId)
+    }
+  }, [value])
+
+  return <article ref={elementRef}><strong>{current.toLocaleString('en-US')}{suffix}</strong><span>{label}</span></article>
+}
+
+function PartnerMarquee() {
+  const logoSet = (duplicate = false) => partnerLogos.map(([file, name]) => (
+    <div className="partner-logo" key={`${duplicate ? 'duplicate-' : ''}${file}`}>
+      <img src={assetUrl(`images/partners/${file}`)} alt={duplicate ? '' : name} />
+    </div>
+  ))
+
+  return <section className="partner-strip" aria-label="Selected healthcare partners">
+    <div className="partner-marquee">
+      <div className="partner-marquee-track">
+        <div className="partner-logo-set">{logoSet()}</div>
+        <div className="partner-logo-set" aria-hidden="true">{logoSet(true)}</div>
+      </div>
+    </div>
+  </section>
+}
+
+function SolutionIcon({ type }) {
+  const paths = {
+    ai: <><path d="M7 4h10l3 3v10l-3 3H7l-3-3V7z"/><path d="M9 12h6M12 9v6M2 10v4M22 10v4M10 2v2M14 2v2M10 20v2M14 20v2"/></>,
+    report: <><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h5M9 12h6M9 16h6M9 8h2"/></>,
+    pis: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 9h8M8 13h4M6 22h12M12 19v3"/></>,
+    remote: <><path d="M5 18a7 7 0 1 1 14 0"/><path d="M8 18v2a2 2 0 0 1-2 2H5v-5h3M16 18v2a2 2 0 0 0 2 2h1v-5h-3M12 5v6l3 2"/></>,
+    scanner: <><path d="M5 3h14v7H5zM3 12h18v8H3z"/><path d="M8 7h8M8 16h8M7 20v2M17 20v2"/></>,
+    appliance: <><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M8 16h2M15 12h1M15 16h1"/></>,
+  }
+  return <svg viewBox="0 0 24 24" aria-hidden="true">{paths[type]}</svg>
+}
+
+function SolutionModule({ item, index }) {
+  const [position, setPosition] = useState({ x: '50%', y: '50%' })
+  const updatePointer = (event) => {
+    const box = event.currentTarget.getBoundingClientRect()
+    setPosition({ x: `${event.clientX - box.left}px`, y: `${event.clientY - box.top}px` })
+  }
+  return <article className="solution-module" onMouseMove={updatePointer} style={{ '--pointer-x': position.x, '--pointer-y': position.y }}>
+    <span className="module-index">0{index + 1}</span><div className="module-icon"><SolutionIcon type={item.icon} /></div><h3>{item.title}</h3><p>{item.detail}</p><a href="#demo">Explore <span>→</span></a>
+  </article>
+}
+
+function PathologyViewer() {
+  const [mode, setMode] = useState('heatmap')
+  const [split, setSplit] = useState(52)
+  const [dragging, setDragging] = useState(false)
+  const canvasRef = useRef(null)
+  const draggingRef = useRef(false)
+  const updateSplit = (event) => {
+    const bounds = canvasRef.current?.getBoundingClientRect()
+    if (!bounds) return
+    setSplit(Math.max(8, Math.min(92, ((event.clientX - bounds.left) / bounds.width) * 100)))
+  }
+  const startDrag = (event) => {
+    event.preventDefault()
+    draggingRef.current = true
+    setDragging(true)
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+  const drag = (event) => {
+    if (draggingRef.current) updateSplit(event)
+  }
+  const endDrag = (event) => {
+    draggingRef.current = false
+    setDragging(false)
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId)
+  }
+  const moveWithKeyboard = (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+    event.preventDefault()
+    setSplit((current) => Math.max(8, Math.min(92, current + (event.key === 'ArrowRight' ? 4 : -4))))
+  }
+  const overlay = mode === 'heatmap' ? 'images/panopath-slide-heatmap-v2.png' : 'images/panopath-slide-lesion-v2.png'
+  const label = mode === 'heatmap' ? 'AI heatmap' : 'Lesion distribution'
+  return <div className="pathology-viewer">
+    <div className="viewer-toolbar"><span><i></i>AI-assisted review</span><div><button className={mode === 'heatmap' ? 'active' : ''} onClick={() => setMode('heatmap')}>Heatmap</button><button className={mode === 'lesion' ? 'active' : ''} onClick={() => setMode('lesion')}>Lesion map</button></div></div>
+    <div className="viewer-canvas" ref={canvasRef}>
+      <img src={assetUrl('images/panopath-slide-original-v2.png')} alt="Original pathology slide" />
+      <div className="viewer-overlay" style={{ clipPath: 'inset(0 0 0 ' + split + '%)' }}><img src={assetUrl(overlay)} alt={label + ' result'} /></div>
+      <div className={'viewer-divider ' + (dragging ? 'is-dragging' : '')} style={{ left: split + '%' }} role="slider" tabIndex="0" aria-label="Drag to compare original slide and AI result" aria-valuemin="8" aria-valuemax="92" aria-valuenow={Math.round(split)} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={moveWithKeyboard}><span>↔</span></div>
       <span className="viewer-state original">Original slide</span><span className="viewer-state result">{label}</span>
     </div>
     <label className="viewer-slider"><span>Slide to compare</span><input type="range" min="8" max="92" value={split} onChange={(event) => setSplit(Number(event.target.value))} aria-label="Compare original slide and AI result" /></label>
