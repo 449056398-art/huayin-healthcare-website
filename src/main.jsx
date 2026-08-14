@@ -386,7 +386,7 @@ function Header() {
       <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}><span></span><span></span><span></span></button>
       <nav className={open ? 'main-nav open' : 'main-nav'}>
         {navItems.map(({ label, items }) => <div className="nav-item" key={label} onMouseEnter={() => setMenu(label)} onMouseLeave={closeMenuOnPointerLeave}>
-          <button onClick={() => toggleMenu(label)} aria-expanded={menu === label}>{label}<span className="chevron">⌄</span></button>
+          <button onClick={() => toggleMenu(label)} aria-expanded={menu === label}>{label}</button>
           {menu === label && <div className="dropdown">{items.map(item => <a href={item.href} onClick={closeNavigation} key={item.label}>{item.label}</a>)}</div>}
         </div>)}
         <a className="language" href="#top">EN <span>/</span> 中</a>
