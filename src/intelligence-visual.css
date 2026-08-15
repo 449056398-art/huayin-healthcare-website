@@ -37,8 +37,16 @@
     gap: 34px;
   }
 
+  .intelligence-copy .eyebrow {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.5;
+  }
+
   .intelligence-copy h2 {
     margin-bottom: 22px;
+    font-size: 40px;
+    line-height: 1.08;
   }
 
   .intelligence-copy > p:last-child {
