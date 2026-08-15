@@ -1,39 +1,45 @@
 **Comparison Target**
 - Source visual truth: `C:/Users/HYK-124/Desktop/华银康官网/IMG_9841.jpg`
-- Prepared image: `C:/Users/HYK-124/.codex/generated_images/019f6f65-be8a-7e22-a0b6-cddc528a9c06/exec-bee238bd-f0b6-4570-ac6d-cf5de7a7e5af.png`
-- Intended implementation: `https://449056398-art.github.io/huayin-healthcare-website/#platform`
-- Intended viewports: 1594 x 900 desktop and 390 x 844 mobile, device scale factor 1.
-- Source pixels: 1920 x 1280. Prepared image pixels: 1536 x 1024. CSS displays the top 80% in a 15:8 desktop frame and a 4:3 mobile frame.
+- Deployed asset: `public/images/intelligence-lab-workflow.png`
+- Implementation: `https://449056398-art.github.io/huayin-healthcare-website/?v=93cfb7ff#platform`
+- Viewports checked: 1440 x 900 desktop and 390 x 844 mobile, device scale factor 1.
+- Source pixels: 1920 x 1280. Deployed image pixels: 1536 x 1024.
 - State: homepage intelligence section, default state.
 
 **Findings**
-- No code or deployment blocker remains. The image, semantic markup, responsive crop, and accessible alternative text are present in the deployed source.
-- Fonts and typography: existing section typography and copy are unchanged.
-- Spacing and layout rhythm: the photograph spans both content columns and uses a stable aspect ratio; section spacing prevents crowding.
-- Colors and visual tokens: no decorative color treatment was added; the photograph sits directly in the existing light section.
-- Image quality and asset fidelity: the supplied laboratory scene remains the only visual asset; the bottom fifth is hidden through a top-aligned crop.
-- Copy and content: all existing text is unchanged.
+- The photograph now sits beside the section copy instead of spanning the full section.
+- Desktop uses a balanced two-column composition: copy on the left and a restrained image on the right.
+- Mobile stacks the copy above the image and removes heading and eyebrow overflow at the narrow breakpoint.
+- The image uses its intrinsic 3:2 ratio with `width: 100%` and `height: auto`; no part of the foreground, professional, workbench, monitor, or scanning equipment is cropped.
+- Existing section copy, colors, and visual tokens remain unchanged.
+- Descriptive alternative text remains present.
 
 **Full-View Comparison Evidence**
-- GitHub Pages deployment for commit `1b0136bf2720d696dda183661a0fea50dfaba41c` completed successfully.
-- A browser-rendered screenshot could not be captured because the local in-app browser runtime was unavailable during the final QA pass.
+- Desktop browser review at 1440 x 900 confirmed the image is secondary to the copy, the section is balanced, and the full frame is visible.
+- Mobile browser review at 390 x 844 confirmed a single-column layout with the image below the copy.
+- The initial mobile review identified right-edge clipping in the eyebrow and headline. Commit `93cfb7ff31e148f28b1dfdd173f93fed858e8483` adds wrapping and a 40 px mobile heading size.
+- GitHub Pages workflow run 80 completed successfully for the final commit.
 
 **Focused Region Comparison Evidence**
-- Source-image review confirms the retained region contains the laboratory environment, central professional, monitor, and slide-scanning equipment.
-- CSS review confirms `height: 125%`, `object-fit: cover`, and `object-position: center top`, exposing the top 80% and removing the lower fifth.
+- Desktop rendered image: approximately 612 x 408 px, matching the asset's 3:2 ratio.
+- Mobile rendered image: approximately 335 x 223 px, matching the asset's 3:2 ratio.
+- CSS uses no fixed-height crop container and no `object-fit: cover`.
+- No page-level horizontal overflow was found during responsive checks.
 
 **Comparison History**
-- Initial state: the intelligence section contained only headline and body copy.
-- Fix made: added a full-width laboratory photograph below the copy with responsive top-aligned cropping.
-- Post-fix evidence: deployment build passed; final browser screenshot remains unavailable.
+- First implementation: full-width image with the lower foreground cropped.
+- User feedback: image was too large and the crop damaged the composition.
+- Revision: moved the complete image to the right side of the copy and restored the full frame.
+- Responsive follow-up: corrected narrow-screen headline and eyebrow clipping.
+- Final deployment: successful.
 
 **Implementation Checklist**
-- [x] Add the supplied laboratory photograph.
-- [x] Crop approximately the lower fifth.
-- [x] Preserve text and existing visual tokens.
-- [x] Add responsive desktop and mobile framing.
-- [x] Add descriptive alternative text.
+- [x] Keep the photograph visually secondary to the section copy.
+- [x] Place the image at one side on desktop.
+- [x] Preserve the full image without cropping.
+- [x] Stack naturally on mobile.
+- [x] Prevent mobile text overflow.
+- [x] Preserve existing copy and styling.
 - [x] Publish through GitHub Pages.
-- [ ] Capture final browser-rendered desktop and mobile screenshots.
 
-final result: blocked
+final result: passed
