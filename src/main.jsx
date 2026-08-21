@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import DiagnosticHologram from './DiagnosticHologram'
 import './styles.css'
 import './navigation-menu.css'
 import './capability-showcase.css'
@@ -20,6 +19,8 @@ import './subpages.css'
 import './partner-marquee.css'
 import './intelligence-visual.css'
 import './about-headquarters.css'
+
+const DiagnosticHologram = lazy(() => import('./DiagnosticHologram'))
 
 const navItems = [
   { label: 'Company', items: [
@@ -544,7 +545,7 @@ function StandardSubpage({ content }) {
     <section className={`subpage-hero ${content.headquarters ? 'subpage-hero-headquarters' : ''}`} style={content.headquarters ? { '--headquarters-hero-image': `url("${assetUrl('images/about-headquarters-campus.webp')}")` } : undefined}><div className="section-shell"><p className="eyebrow blue">{content.eyebrow}</p><h1>{content.title}</h1><p className="subpage-summary">{content.summary}</p></div></section>
     <section className="subpage-stats section-shell">{content.stats.map(([value, label], index) => <article key={`${value}-${label}-${index}`}><strong>{value}</strong><span>{label}</span></article>)}</section>
     {content.headquarters ? <section className="subpage-intro about-headquarters-intro section-shell"><figure><img src={assetUrl('images/about-headquarters-building.webp')} alt="Huayin Healthcare Group headquarters building in Guangzhou" loading="lazy" decoding="async" /><figcaption>Huayin Healthcare Group headquarters, Guangzhou</figcaption></figure><div className="about-headquarters-copy"><p className="eyebrow blue">OVERVIEW</p><div className="subpage-intro-copy">{introParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div></section> : <section className="subpage-intro section-shell"><p className="eyebrow blue">OVERVIEW</p><div className="subpage-intro-copy">{introParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>}
-    {content.hologram && <DiagnosticHologram />}
+    {content.hologram && <Suspense fallback={<section className="diagnostic-hologram-loading" aria-label="Loading diagnostic body visualization" />}><DiagnosticHologram /></Suspense>}
     {content.visual === 'viewer' && <section className="subpage-viewer section-shell"><PathologyViewer /></section>}
     <section className="subpage-grid section-shell">{content.sections.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></article>)}</section>
     <section className="subpage-proof"><div className="section-shell"><div><p className="eyebrow">KEY CAPABILITIES</p><h2>Built for clinical practice.</h2></div><ul>{content.bullets.map(item => <li key={item}>{item}</li>)}</ul></div></section>

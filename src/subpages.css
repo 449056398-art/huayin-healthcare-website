@@ -75,6 +75,11 @@
 .subpage-viewer { padding-bottom: 80px; }
 .subpage-viewer .pathology-viewer { max-width: 920px; margin: 0 auto; }
 
+.diagnostic-hologram-loading {
+  min-height: 620px;
+  background: #061f3b;
+}
+
 .subpage-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -155,3 +160,4 @@
   .demo-page form { grid-template-columns: 1fr; padding: 22px; }
   .demo-page .full-field { grid-column: auto; }
 }
+
