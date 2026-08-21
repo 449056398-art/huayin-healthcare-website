@@ -58,19 +58,10 @@
 .value-grid article:hover > b { transform: translate(3px, -3px); }
 
 .value-visual { width: 62px; height: 62px; position: relative; display: grid; place-items: center; border-radius: 50%; background: #063b7d; overflow: hidden; }
-.value-visual:before,.value-visual:after,.value-visual i { content: ''; position: absolute; display: block; }
-.value-efficiency .value-visual:before { width: 26px; height: 26px; border: 1px solid rgba(123,224,239,.9); border-radius: 50%; }
-.value-efficiency .value-visual:after { width: 7px; height: 7px; border-radius: 50%; background: #78deef; box-shadow: 0 0 0 8px rgba(120,222,239,.13),0 0 0 17px rgba(120,222,239,.08); animation: value-pulse 2s ease-in-out infinite; }
-.value-efficiency .value-visual i { width: 18px; height: 1px; background: #78deef; transform: rotate(-42deg); }
 .value-cost .value-visual { background: #0b69ad; }
-.value-cost .value-visual:before { width: 24px; height: 24px; border: 1px solid #b9edf5; transform: rotate(45deg); }
-.value-cost .value-visual:after { width: 30px; height: 1px; background: #b9edf5; box-shadow: 0 -9px 0 rgba(185,237,245,.65),0 9px 0 rgba(185,237,245,.65); }
-.value-cost .value-visual i { width: 5px; height: 5px; border-radius: 50%; background: #fff; }
 .value-quality .value-visual { background: #12618d; }
-.value-quality .value-visual:before { width: 32px; height: 32px; border: 1px solid #c9f1f5; border-radius: 50%; }
-.value-quality .value-visual:after { width: 18px; height: 18px; border: 1px solid #79dce9; border-radius: 50%; }
-.value-quality .value-visual i { width: 5px; height: 5px; border-radius: 50%; background: #f4b16b; box-shadow: 0 0 0 5px rgba(244,177,107,.16); animation: value-pulse 2.2s ease-in-out infinite -.6s; }
-@keyframes value-pulse { 50% { transform: scale(1.18); opacity:.72; } }
+.value-visual img { display: block; width: 31px; height: 31px; object-fit: contain; }
+.value-efficiency .value-visual img { width: 34px; height: 34px; }
 
 /* Company proof leads with the headquarters image, then stacks the message alongside it. */
 .company-intro > .section-shell {
