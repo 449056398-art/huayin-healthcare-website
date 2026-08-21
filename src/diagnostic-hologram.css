@@ -1,0 +1,306 @@
+.diagnostic-hologram {
+  position: relative;
+  overflow: hidden;
+  min-height: 760px;
+  background: #061f3b;
+  color: #fff;
+  border-top: 1px solid rgba(112, 213, 245, 0.2);
+  border-bottom: 1px solid rgba(112, 213, 245, 0.2);
+}
+
+.diagnostic-hologram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(105, 207, 240, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(105, 207, 240, 0.045) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(90deg, transparent 0, #000 35%, #000 100%);
+}
+
+.diagnostic-hologram-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(310px, 0.72fr) minmax(520px, 1.28fr);
+  gap: 36px;
+  align-items: stretch;
+  min-height: 760px;
+}
+
+.diagnostic-hologram-copy {
+  align-self: center;
+  padding: 88px 0;
+}
+
+.diagnostic-hologram .eyebrow {
+  color: #69daf7;
+}
+
+.diagnostic-hologram-copy h2 {
+  max-width: 520px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(42px, 4.5vw, 66px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.diagnostic-hologram-copy > p:last-of-type {
+  max-width: 440px;
+  margin: 26px 0 0;
+  color: #a9c5d9;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.organ-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+  margin-top: 42px;
+  border-top: 1px solid rgba(136, 213, 238, 0.22);
+}
+
+.organ-index button {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  min-width: 0;
+  padding: 14px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(136, 213, 238, 0.18);
+  background: transparent;
+  color: #d8edf5;
+  font: 400 14px/1.2 inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease, padding-left 160ms ease;
+}
+
+.organ-index button span {
+  color: #5ac9eb;
+  font: 500 9px/1 'DM Mono', monospace;
+}
+
+.organ-index button:hover,
+.organ-index button:focus-visible,
+.organ-index button.is-active {
+  padding-left: 8px;
+  color: #ff9a44;
+  outline: none;
+}
+
+.organ-index button.is-active span {
+  color: #ff9a44;
+}
+
+.diagnostic-hologram-stage {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+}
+
+.diagnostic-hologram-stage::before {
+  content: '';
+  position: absolute;
+  inset: 9% 5% 7%;
+  border-left: 1px solid rgba(90, 206, 241, 0.18);
+  border-right: 1px solid rgba(90, 206, 241, 0.18);
+  pointer-events: none;
+}
+
+.hologram-canvas {
+  position: absolute;
+  inset: 0;
+  transition: filter 300ms ease, transform 300ms ease, opacity 300ms ease;
+}
+
+.hologram-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: manipulation;
+}
+
+.hologram-canvas.is-softened {
+  filter: blur(9px);
+  transform: scale(0.84);
+  opacity: 0.35;
+}
+
+.hologram-axis {
+  position: absolute;
+  inset: 50% 7% auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  pointer-events: none;
+}
+
+.hologram-axis::before,
+.hologram-axis::after {
+  content: '';
+  height: 1px;
+  background: rgba(94, 210, 244, 0.18);
+}
+
+.hologram-axis span {
+  display: none;
+}
+
+.active-organ-readout {
+  position: absolute;
+  right: 7%;
+  bottom: 48px;
+  display: grid;
+  min-width: 230px;
+  padding: 15px 0 0 18px;
+  border-top: 1px solid rgba(100, 217, 250, 0.62);
+  border-left: 2px solid #5bd6f7;
+  pointer-events: none;
+}
+
+.active-organ-readout span {
+  color: #f5fbff;
+  font-size: 18px;
+}
+
+.active-organ-readout small {
+  margin-top: 5px;
+  color: #89afc7;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.organ-video-layer {
+  position: fixed;
+  z-index: 300;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(2, 15, 31, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.organ-video-dialog {
+  width: min(920px, 94vw);
+  background: #071d35;
+  border: 1px solid rgba(117, 218, 247, 0.58);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+}
+
+.organ-video-dialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+}
+
+.organ-video-dialog header span {
+  color: #62d6f6;
+  font: 600 9px/1 'DM Mono', monospace;
+}
+
+.organ-video-dialog h3 {
+  margin: 5px 0 0;
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: 0;
+}
+
+.organ-video-dialog header button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(134, 220, 245, 0.42);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.organ-video-dialog video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #020b16;
+  object-fit: cover;
+}
+
+.organ-video-dialog > p {
+  margin: 0;
+  padding: 15px 20px 18px;
+  color: #a9c5d9;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .diagnostic-hologram,
+  .diagnostic-hologram-inner {
+    min-height: 0;
+  }
+
+  .diagnostic-hologram-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .diagnostic-hologram-copy {
+    padding: 72px 0 18px;
+  }
+
+  .diagnostic-hologram-stage {
+    min-height: 680px;
+  }
+}
+
+@media (max-width: 600px) {
+  .diagnostic-hologram-copy h2 {
+    font-size: 42px;
+  }
+
+  .diagnostic-hologram-copy > p:last-of-type {
+    font-size: 15px;
+  }
+
+  .organ-index {
+    gap: 0 14px;
+    margin-top: 32px;
+  }
+
+  .organ-index button {
+    font-size: 12px;
+  }
+
+  .diagnostic-hologram-stage {
+    width: 100vw;
+    min-height: 610px;
+    margin-left: calc(50% - 50vw);
+  }
+
+  .active-organ-readout {
+    right: 24px;
+    bottom: 28px;
+    min-width: 190px;
+  }
+
+  .organ-video-layer {
+    padding: 12px;
+  }
+
+  .organ-video-dialog {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hologram-canvas,
+  .organ-index button {
+    transition: none;
+  }
+}
+

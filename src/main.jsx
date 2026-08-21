@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import DiagnosticHologram from './DiagnosticHologram'
 import './styles.css'
 import './navigation-menu.css'
 import './capability-showcase.css'
@@ -205,6 +206,7 @@ const subpages = {
       'H&E slide AI quality control flags 18+ common pre-analytical defects.',
     ],
     visual: 'viewer',
+    hologram: true,
     cta: 'See validation data',
   },
   'full-stack-ecosystem': {
@@ -542,6 +544,7 @@ function StandardSubpage({ content }) {
     <section className={`subpage-hero ${content.headquarters ? 'subpage-hero-headquarters' : ''}`} style={content.headquarters ? { '--headquarters-hero-image': `url("${assetUrl('images/about-headquarters-campus.webp')}")` } : undefined}><div className="section-shell"><p className="eyebrow blue">{content.eyebrow}</p><h1>{content.title}</h1><p className="subpage-summary">{content.summary}</p></div></section>
     <section className="subpage-stats section-shell">{content.stats.map(([value, label], index) => <article key={`${value}-${label}-${index}`}><strong>{value}</strong><span>{label}</span></article>)}</section>
     {content.headquarters ? <section className="subpage-intro about-headquarters-intro section-shell"><figure><img src={assetUrl('images/about-headquarters-building.webp')} alt="Huayin Healthcare Group headquarters building in Guangzhou" loading="lazy" decoding="async" /><figcaption>Huayin Healthcare Group headquarters, Guangzhou</figcaption></figure><div className="about-headquarters-copy"><p className="eyebrow blue">OVERVIEW</p><div className="subpage-intro-copy">{introParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div></section> : <section className="subpage-intro section-shell"><p className="eyebrow blue">OVERVIEW</p><div className="subpage-intro-copy">{introParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>}
+    {content.hologram && <DiagnosticHologram />}
     {content.visual === 'viewer' && <section className="subpage-viewer section-shell"><PathologyViewer /></section>}
     <section className="subpage-grid section-shell">{content.sections.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></article>)}</section>
     <section className="subpage-proof"><div className="section-shell"><div><p className="eyebrow">KEY CAPABILITIES</p><h2>Built for clinical practice.</h2></div><ul>{content.bullets.map(item => <li key={item}>{item}</li>)}</ul></div></section>
@@ -596,7 +599,7 @@ function App() {
 
       <PartnerMarquee />
 
-      <section className="intro intelligence-intro section-shell" id="platform"><div className="intelligence-copy"><p className="eyebrow blue">THE INTELLIGENCE BEHIND SMARTER PATHOLOGY</p><h2>From every case,<br/>a better next case.</h2><p>As a pioneer in telepathology, Huayin has built a real-world pathology data foundation that brings big data, algorithms and clinical scenarios into one continuously improving ecosystem.</p></div><figure className="intelligence-visual"><img src={assetUrl('images/intelligence-lab-workflow.png')} alt="Pathology professional working with digital slide scanning systems in a Huayin laboratory" /></figure></section>
+      <section className="intro intelligence-intro section-shell" id="platform"><div><p className="eyebrow blue">THE INTELLIGENCE BEHIND SMARTER PATHOLOGY</p><h2>From every case,<br/>a better next case.</h2></div><p>As a pioneer in telepathology, Huayin has built a real-world pathology data foundation that brings big data, algorithms and clinical scenarios into one continuously improving ecosystem.</p><figure className="intelligence-visual"><img src={assetUrl('images/intelligence-lab-workflow.png')} alt="Pathology professional working with digital slide scanning systems in a Huayin laboratory" /></figure></section>
 
       <section className="capability-section"><div className="section-shell"><div className="section-heading"><p className="eyebrow blue">WHAT WE ENABLE</p><h2>Built for the next era<br/>of pathology.</h2></div><div className="capability-grid">{capabilities.map(({ title, copy, image, key }) => <article className={'capability-card capability-' + key} key={title}><img className="capability-image" src={assetUrl(image)} alt="" /><div className="capability-card-content"><h3>{title}</h3><p>{copy}</p></div></article>)}</div></div></section>
 
@@ -619,3 +622,4 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App />)
+
